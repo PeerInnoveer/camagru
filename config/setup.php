@@ -3,10 +3,11 @@
 include 'database.php';
 
 try {
-    $db_conn= new PDO("mysql:host={$db_host};dbname={$db_name}",$db_user,$db_pass);
+    $db_conn= new PDO("mysql:host={$db_host};dbname={$db_name}", $db_user, $db_pass);
     // set the PDO error mode to exception
     $db_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "CREATE DATABASE IF NOT EXISTS camagru";
+    // use exec() because no results are returned
     $db_conn->exec($sql);
     $sql = "USE camagru;
                 CREATE TABLE `users` (
@@ -31,7 +32,7 @@ try {
 				ALTER TABLE `images` MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT;
 				ALTER TABLE `comments` MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT;";
     $db_conn->exec($sql);
-    } 
+    }
 catch(PDOException $e)
     {
     echo $e->getMessage();

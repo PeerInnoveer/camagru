@@ -9,7 +9,7 @@ if (isset($_POST['signup-submit'])) {
     $password = $_POST['pwd'];
     $password_confirm = $_POST['pwd-confirm'];
 
-    if (empty($username) || empty($email) || empty($password) || empty($pwd_confirm)) {
+    if (empty($username) || empty($email) || empty($password) || empty($password_confirm)) {
         header("Location: ../signup.php?error=emptyfields&uid=".$username."&mail=".$email);
         exit();
     } else if (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)) {
@@ -24,7 +24,7 @@ if (isset($_POST['signup-submit'])) {
     } else if ($password !== $password_confirm) {
         header("Location: ../signup.php?error=passwordcheckuid=".$username."&mail=".$email);
         exit();
-    } 
+    }
     else {
         $sql = "SELECT user_uid FROM users WHERE user_uid=?";
         $stmt = mysqli_stmt_init($conn);
