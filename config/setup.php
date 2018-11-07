@@ -7,7 +7,6 @@ try {
     // set the PDO error mode to exception
     $db_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "CREATE DATABASE IF NOT EXISTS camagru";
-    // use exec() because no results are returned
     $db_conn->exec($sql);
     $sql = "USE camagru;
                 CREATE TABLE `users` (
