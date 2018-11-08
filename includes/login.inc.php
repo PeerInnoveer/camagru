@@ -1,47 +1,55 @@
 <?php
 
-session_start();
+if (isset($_POST['login-submit'])) {
 
-if (isset($_POST['signup-submit'])) {
+    require 'dbh.inc.php';
 
-    include 'dbh.inc.php';
+    $mailuid = $_POST['mailuid'];
+    $password = $_POST['pwd']; 
 
-    $uid = mysqli_real_escape_string($conn, $_POST['uid']);
-    $uid = mysqli_real_escape_string($conn, $_POST['pwd']);
-
-    //Error handlers
-    //Check if inputs are empty
-    if (empty($uid) || empty($pwd)) {
-        header("Location: ../index.php?login=empty");
+    if (empty($mailuid) || empty($password)) {
+        header("Location: ../index.php?error=emptyfields");
         exit();
-    }   else { 
-            $sql = "SELECT * FROM users WHERE user_uid='$uid' OR user_email='$uid";
-            $result = mysqli_query($conn, $sql);
-            $resultCheck = mysqli_num_rows($result);
-           if ($resultCheck < 1) {
-                header("Location: ../index.php?login=error");
-                exit();
-            }   else {
-                    if ($row = mysqli_fetch_assoc($result)) {
-                        //De-hashing the password
-                        $hashedPwdCheck = password_verify($pwd, $row['user_pwd']);
-                        if ($hashedPwdCheck == false)  {
-                            header("Location: ../index.php?login=error");
-                            exit();
-                        }   elseif ($hashedPwdCheck == true) {
-                            //Log in the user here
-                            $_SESSION['u_id'] = $row['user_id'];
-                            $_SESSION['u_first'] = $row['user_first'];
-                            $_SESSION['u_last'] = $row['user_last'];
-                            $_SESSION['u_email'] = $row['user_email'];
-                            $_SESSION['u_uid'] = $row['user_uid'];
-                            header("Location: ../index.php?login=success");
-                            exit();
-                        } 
-                    }
+    }
+    else {
+        $sql = "SELECT * FROM users WHERE user_uid=? OR user_email=?;";
+        $stmt = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            header("Location: ../index.php?error=sqlerror");
+            exit(); 
+        }
+        else {
+            mysqli_stmt_bind_param($stmt, "ss", $mailuid, $password);
+            mysqli_stmt_execute($stmt);
+            $result = mysql_stmt_get_result($stmt);
+            if ($row = mysql_fetch_assoc($result)) {
+                $pwdCheck = password_verify($password, $row['user_pwd']);
+                if ($pwdCheck == false) {
+                    header("Location: ../index.php?error=wrong_pwd");
+                    exit();
+                }
+                else if ($pwdCheck == true) {
+                   session_start();
+                   $_SESSION['userId'] = $row['user_id'];
+                   $_SESSION['userUid'] = $row['user_uid'];
+
+                   header("Location: ../index.php?login=success");
+                    exit();
+                }
+                else {
+                    header("Location: ../index.php?error=wrong_pwd");
+                    exit();
                 }
             }
-}   else {
-    header("Location: ../index.php?login=error");
+            else {
+                header("Location: ../index.php?error=no_user");
+                exit();
+            }
+        }
+    }
+
+}
+else {
+    header("Location: ../index.php");
     exit();
 }

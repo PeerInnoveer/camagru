@@ -13,7 +13,7 @@ if (isset($_POST['signup-submit'])) {
         header("Location: ../signup.php?error=emptyfields&uid=".$username."&mail=".$email);
         exit();
     } else if (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)) {
-        header("Location: ../signup.php?error=invalidmailuid=");
+        header("Location: ../signup.php?error=invalidmail&uid=");
         exit();
     } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         header("Location: ../signup.php?error=invalidmail&uid=".$username);
@@ -22,7 +22,7 @@ if (isset($_POST['signup-submit'])) {
         header("Location: ../signup.php?error=invaliduid&mail=".$email);
         exit();
     } else if ($password !== $password_confirm) {
-        header("Location: ../signup.php?error=passwordcheckuid=".$username."&mail=".$email);
+        header("Location: ../signup.php?error=passwordcheck&uid=".$username."&mail=".$email);
         exit();
     }
     else {

@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE <!DOCTYPE html>
 <html>
 <head>
@@ -15,9 +19,9 @@
             </ul>
             <div class="nav-login">
                 <form>
-                    <input type="text" name="uid" placeholder="Username/e-mail">
+                    <input type="text" name="mailuid" placeholder="Username/e-mail">
                     <input type="password" name="pwd" placeholder="Password">
-                    <button type="submit" name="submit">Login</button>
+                    <button type="submit" name="login-submit">Login</button>
                 </form>
                 <a href="signup.php">Sign up</a>
                 <form>
