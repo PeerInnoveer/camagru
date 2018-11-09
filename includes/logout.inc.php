@@ -4,6 +4,6 @@ if (isset($_POST['signup-submit'])) {
     session_start();
     session_unset();
     session_destroy();
-    header("Location: ../index.php");
+    header("Location: ../signup.php");
     exit();
 }
