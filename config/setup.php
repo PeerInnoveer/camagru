@@ -1,6 +1,6 @@
 <?php
 
-include 'database.php';
+require 'database.php';
 
 try {
     $db_conn= new PDO("mysql:host={$db_host};dbname={$db_name}", $db_user, $db_pass);
@@ -17,13 +17,12 @@ try {
                     `user_pwd` varchar(255) NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8;
                 CREATE TABLE `images` (
                     `image_id` int(11) NOT NULL,
-                    `name` varchar(255) NOT NULL,
+                    `description` varchar(255) NOT NULL,
                     `user_id` int(11) NOT NULL,
                     `like_count` int(11) NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8;
                 CREATE TABLE `comments` (
                     `comment_id` int(11) NOT NULL,
-                    `name` varchar(255) NOT NULL,
-                    `content` longtext NOT NULL,
+                    `comment` longtext NOT NULL,
                     `image_id` int(11) NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8;
                 ALTER TABLE `users` ADD PRIMARY KEY (`user_id`);
 				ALTER TABLE `images` ADD PRIMARY KEY (`image_id`);
@@ -38,5 +37,5 @@ catch(PDOException $e)
     echo $e->getMessage();
     die();
     }
-    header("Location: ../signup.php");
+    header("Location: ../php/signup.php");
 ?>

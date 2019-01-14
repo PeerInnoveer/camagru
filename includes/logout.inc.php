@@ -1,9 +1,9 @@
 <?php
 
-if (isset($_POST['signup-submit'])) {
+if (isset($_POST['logout-submit'])) {
     session_start();
     session_unset();
     session_destroy();
-    header("Location: ../signup.php");
+    header("Location: ../php/signup.php?logout=success");
     exit();
 }
