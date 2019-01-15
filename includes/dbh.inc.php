@@ -8,5 +8,5 @@ $dbName = "camagru";
 $conn = mysqli_connect($servername, $dbUsername, $dbPassword, $dbName);
 
 if (!$conn) {
-    die("Connection failed: ".mysqli_connect_error());
+    die("Connection failed: ".mysqli_connect_error()); //Only suitable for sql_database, make changes.
 }

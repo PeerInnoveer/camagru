@@ -1,0 +1,37 @@
+* {
+    margin: 0 auto;
+}
+
+body h2 {
+    padding-top: 10px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 50px;
+}
+
+img {
+    display: block;
+    width: 400px;
+    height: 333px;
+    padding-top: 100px;
+}
+
+.ppf {
+    font-family: 'Oswald', sans-serif;
+    font-size: 17px;
+    width: 800px;
+    background-image: linear-gradient(white, white);
+    border: 10px solid rgb(95, 123, 185);
+    padding: 30px;
+    margin-top: 60px;
+}
+
+.cpf {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    width: 800px;
+    background-image: linear-gradient(white, white);
+    border: 10px solid rgb(95, 123, 185);
+    padding: 30px;
+    margin-top: 60px;
+}
