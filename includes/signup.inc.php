@@ -24,18 +24,9 @@ if (isset($_POST['signup-submit'])) {
         exit();
     } else if ($password !== $password_confirm) {
         header("Location: ../php/signup.php?error=passwordcheck&uid=".$username."&mail=".$email);
-<<<<<<< HEAD
         exit();
     } else if (strlen($username) < 5 ) {
         header("Location: ../php/signup.php?error=username_<_5="."&mail=".$email);
-=======
-<<<<<<< HEAD
-        exit();
-    } else if (strlen($username) < 5 ) {
-        header("Location: ../php/signup.php?error=username_<_5="."&mail=".$email);
-=======
->>>>>>> 7f3a1f05b148bb3c6c1562d50d8e45b5d90fa4d8
->>>>>>> c7fbdb6f4c53a5e5b77629721a5ae422f7cc3ebf
         exit();
     }
     //_______End of Error Handlers
@@ -50,15 +41,9 @@ if (isset($_POST['signup-submit'])) {
         mysqli_stmt_execute($stmt);
         mysqli_stmt_store_result($stmt);
         $resultCheck = mysqli_stmt_num_rows($stmt);
-<<<<<<< HEAD
-        if ($resultCheck > 0) {
-<<<<<<< HEAD
-=======
-=======
+
         if ($results > 0) {
->>>>>>> 7f3a1f05b148bb3c6c1562d50d8e45b5d90fa4d8
->>>>>>> c7fbdb6f4c53a5e5b77629721a5ae422f7cc3ebf
-            header("Location: ../php/signup.php?error=usertaken&mail=".$email);
+        header("Location: ../php/signup.php?error=usertaken&mail=".$email);
             exit();
     } else {
         //Generate vkey
@@ -70,7 +55,6 @@ if (isset($_POST['signup-submit'])) {
             exit();
     } else {
         $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-<<<<<<< HEAD
         mysqli_stmt_bind_param($stmt, "ssss", $username, $email, $hashedPwd, $vkey);
         mysqli_stmt_execute($stmt);
         //Send email
@@ -84,30 +68,6 @@ if (isset($_POST['signup-submit'])) {
         
         mail($to, $subject, $message, $headers);
         header("Location: ../php/signup.php?verified=check_email");
-=======
-<<<<<<< HEAD
-        mysqli_stmt_bind_param($stmt, "ssss", $username, $email, $hashedPwd, $vkey);
-        mysqli_stmt_execute($stmt);
-        //Send email
-        $to = $email;
-        $subject = "Email Verification";
-        $message = "<a href='http://localhost:8080/camagru/php/verify.php?vkey=$vkey'>Register Account</a>";
-        
-        //$headers = "From: peerinnoveergmail.com \r\n";
-        $headers = "MiME-Version: 1.0" . "\r\n";
-        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        
-        mail($to, $subject, $message, $headers);
-        header("Location: ../php/signup.php?verified=check_email");
-=======
-        
-        mysqli_stmt_bind_param($stmt, "sss", $username, $email, $hashedPwd);
-        mysqli_stmt_execute($stmt);
-        header("Location: ../php/signup.php?signup=success");
->>>>>>> 7f3a1f05b148bb3c6c1562d50d8e45b5d90fa4d8
->>>>>>> c7fbdb6f4c53a5e5b77629721a5ae422f7cc3ebf
-        exit();
-        header("Location: ../php/signup.php?verified=login");
         }
     }
     }
