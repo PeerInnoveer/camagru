@@ -95,6 +95,7 @@ nav {
     color: darkslategrey;
 }
 
+<<<<<<< HEAD
 .dropdown {
     position: relative;
     display: inline-block;
@@ -103,6 +104,8 @@ nav {
     display: none;
     position: absolute;
 }
+=======
+>>>>>>> 7f3a1f05b148bb3c6c1562d50d8e45b5d90fa4d8
 li a {
     font-family: 'Changa', sans-serif;;
     font-size: 32px;
@@ -400,8 +403,13 @@ footer {
     header .nav-login form button {
         float: left;
         width: 47px;
+<<<<<<< HEAD
         height: 30px;
         margin-top: 0px;
+=======
+        height: 27px;
+        margin-top: 3px;
+>>>>>>> 7f3a1f05b148bb3c6c1562d50d8e45b5d90fa4d8
         margin-right: 10px;
         border: none;
         background-color: #f1f1f1;

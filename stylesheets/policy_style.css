@@ -1,7 +1,10 @@
 * {
     margin: 0 auto;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7f3a1f05b148bb3c6c1562d50d8e45b5d90fa4d8
 body h2 {
     padding-top: 10px;
     text-align: center;
@@ -20,18 +23,30 @@ img {
     font-family: 'Oswald', sans-serif;
     font-size: 17px;
     width: 800px;
+<<<<<<< HEAD
     background-image: linear-gradient(white, white);
     border: 10px solid rgb(95, 123, 185);
     padding: 30px;
     margin-top: 60px;
+=======
+    background-image: linear-gradient(white, #324b1a);
+    border: 10px solid rgb(95, 123, 185);
+    padding: 10px;
+>>>>>>> 7f3a1f05b148bb3c6c1562d50d8e45b5d90fa4d8
 }
 
 .cpf {
     font-family: 'Oswald', sans-serif;
     font-size: 18px;
     width: 800px;
+<<<<<<< HEAD
     background-image: linear-gradient(white, white);
     border: 10px solid rgb(95, 123, 185);
     padding: 30px;
     margin-top: 60px;
+=======
+    background-image: linear-gradient(white, #324b1a);
+    border: 10px solid rgb(95, 123, 185);
+    padding: 10px;
+>>>>>>> 7f3a1f05b148bb3c6c1562d50d8e45b5d90fa4d8
 }

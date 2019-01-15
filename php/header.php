@@ -2,7 +2,11 @@
     session_start();
 ?>
 
+<<<<<<< HEAD
 <!DOCTYPE html>
+=======
+<!DOCTYPE <!DOCTYPE html>
+>>>>>>> 7f3a1f05b148bb3c6c1562d50d8e45b5d90fa4d8
 <html>
 <head>
     <meta charset="utf-8" />
