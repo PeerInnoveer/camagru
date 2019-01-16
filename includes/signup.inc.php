@@ -42,7 +42,7 @@ if (isset($_POST['signup-submit'])) {
         mysqli_stmt_store_result($stmt);
         $resultCheck = mysqli_stmt_num_rows($stmt);
 
-        if ($results > 0) {
+        if ($resultCheck > 0) {
         header("Location: ../php/signup.php?error=usertaken&mail=".$email);
             exit();
     } else {
@@ -58,9 +58,12 @@ if (isset($_POST['signup-submit'])) {
         mysqli_stmt_bind_param($stmt, "ssss", $username, $email, $hashedPwd, $vkey);
         mysqli_stmt_execute($stmt);
         //Send email
+        $mail = file_get_contents('../php/mail.html');
+        $link = "http://localhost:8080/camagru/php/verify.php?vkey=$vkey";
+        
         $to = $email;
         $subject = "Email Verification";
-        $message = "<a href='http://localhost:8080/camagru/php/verify.php?vkey=$vkey'>Register Account</a>";
+        $message = $mail;
         
         //$headers = "From: peerinnoveergmail.com \r\n";
         $headers = "MiME-Version: 1.0" . "\r\n";

@@ -23,17 +23,5 @@ if (isset($_GET['vkey'])) {
     die ("Something went wrong");
 }
 }
+
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-<link href="../stylesheets/verify.css" rel="stylesheet" type="text/css" />
-</head>
-
-<body>
-    <div class="test">
-    
-    </div>
-</body>
-</html>
