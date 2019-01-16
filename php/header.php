@@ -2,15 +2,8 @@
     session_start();
 ?>
 
-<<<<<<< HEAD
 <!DOCTYPE html>
-=======
-<<<<<<< HEAD
-<!DOCTYPE html>
-=======
-<!DOCTYPE <!DOCTYPE html>
->>>>>>> 7f3a1f05b148bb3c6c1562d50d8e45b5d90fa4d8
->>>>>>> c7fbdb6f4c53a5e5b77629721a5ae422f7cc3ebf
+
 <html>
 <head>
     <meta charset="utf-8" />
