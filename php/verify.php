@@ -28,10 +28,12 @@ if (isset($_GET['vkey'])) {
 <!DOCTYPE html>
 <html>
 <head>
-<link href="../stylesheets/styles.css" rel="stylesheet" type="text/css" />
+<link href="../stylesheets/verify.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-
+    <div class="test">
+    
+    </div>
 </body>
 </html>
