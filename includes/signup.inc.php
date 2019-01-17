@@ -9,6 +9,7 @@ if (isset($_POST['signup-submit'])) {
     $password = $_POST['pwd'];
     $password_confirm = $_POST['pwd-confirm'];
     
+    
     //_______Error Handlers
     if (empty($username) || empty($email) || empty($password) || empty($password_confirm)) {
         header("Location: ../php/signup.php?error=emptyfields&uid=".$username."&mail=".$email);

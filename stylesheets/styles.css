@@ -294,6 +294,11 @@ footer {
     font-family: arial;
 }
 
+.reset_success {
+    color: green;
+    margin: 8px;
+    font-family: arial;
+}
 /*____________@MEDIA QUERY____________________#####################################*/
 @media screen and (max-width: 600px) {
     

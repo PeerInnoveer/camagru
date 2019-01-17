@@ -18,14 +18,14 @@
         <?php
             if (isset($_GET["newpwd"])) {
                 if ($_GET["newpwd"] == "passwordupdated") {
-                    echo '<p class="signupsuccess">Your password has been reset!</p>';
+                    echo '<p class="reset_success">Your password has been reset!<br>Go ahead and login</p>';
                 }
             }
         ?>
         <a href="reset-password.php" style="color: maroon; font-family: arial;">Forgot Password?</a>
         <br>
         <br>
-        <h5 class="you_mean">Get the app.</h5>
+        <h5 class="you_mean">Get the app. Noooot!</h5>
         <br>
         <a class="g_play" href="#"><img style="max-width:180px; min-width:150px;" alt="GooglePlay"  src="../img/Googleplay.png" width=14.8%></a>
         <a class="a_store" href="#"><img style="max-width:180px; min-width:150px;" alt="AppStore" src="../img/appStore.png"  width=15% ></a>
