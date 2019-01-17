@@ -256,7 +256,7 @@ footer {
     text-align: center;
 }
 
-.lower-main {
+.additional {
     margin: auto;
     text-align: center;
     margin-top: -10px;
@@ -272,6 +272,26 @@ footer {
     margin: 0 auto;
     font-family: arial;
     margin-bottom: -10px;
+}
+
+.section-default {
+    text-align: center;
+    font-family: 'Carter One', monospace;
+    margin-top: 100px;
+}
+.rnpbe-button {
+    width: 200px;
+    height: 25px;
+    background-color: gold;
+    border-radius: 4px;
+    font-family: arial;
+    font-size: 12px;
+}
+.eyea-input {
+    width: 180px;
+    height: 27px;
+    border-radius: 4px;
+    font-family: arial;
 }
 
 /*____________@MEDIA QUERY____________________#####################################*/
@@ -533,7 +553,7 @@ footer {
         font-family: arial;
     }
     
-    .lower-main {
+    .additional {
         margin: auto;
         text-align: center;
         margin-top: -10px;

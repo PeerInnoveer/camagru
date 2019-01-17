@@ -11,11 +11,18 @@
             <button type="Submit" name="signup-submit">Signup</button>
         </form>
 </div>
-<div class="lower-main">
+<div class="additional">
         <p class="agree">By clicking on Signup, you agree to Camguru's <br><a href="cookie_policy.php" target="_blank" style="color: darkblue;">Cookie</a> and 
         <a href="privacy_policy.php" target="_blank" style="color: darkblue;">Privacy</a> Policy.</p>
         <br>
-        <a href="#" style="color: maroon; font-family: arial;">Forgot Password?</a>
+        <?php
+            if (isset($_GET["newpwd"])) {
+                if ($_GET["newpwd"] == "passwordupdated") {
+                    echo '<p class="signupsuccess">Your password has been reset!</p>';
+                }
+            }
+        ?>
+        <a href="reset-password.php" style="color: maroon; font-family: arial;">Forgot Password?</a>
         <br>
         <br>
         <h5 class="you_mean">Get the app.</h5>
