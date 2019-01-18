@@ -27,7 +27,7 @@ if (isset($_POST['signup-submit'])) {
         header("Location: ../php/signup.php?error=passwordcheck&uid=".$username."&mail=".$email);
         exit();
     } else if (strlen($username) < 5 ) {
-        header("Location: ../php/signup.php?error=username_<_5="."&mail=".$email);
+        header("Location: ../php/signup.php?errorUid=usernameShort&mail=".$email);
         exit();
     }
     //_______End of Error Handlers
@@ -42,6 +42,7 @@ if (isset($_POST['signup-submit'])) {
         mysqli_stmt_execute($stmt);
         mysqli_stmt_store_result($stmt);
         $resultCheck = mysqli_stmt_num_rows($stmt);
+        $emailCheck = mysqli_stmt_num_rows($stmt);
 
         if ($resultCheck > 0) {
         header("Location: ../php/signup.php?error=usertaken&mail=".$email);
@@ -61,10 +62,10 @@ if (isset($_POST['signup-submit'])) {
         //Send email
         $mail = file_get_contents('../php/mail.html');
         $link = "http://localhost:8080/camagru/php/verify.php?vkey=$vkey";
-        
+
         $to = $email;
         $subject = "Email Verification";
-        $message = $mail;
+        $message = $link;
         
         //$headers = "From: peerinnoveergmail.com \r\n";
         $headers = "MiME-Version: 1.0" . "\r\n";

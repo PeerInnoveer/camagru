@@ -24,6 +24,7 @@ nav {
     height: 60px;
     background: #fff;
     position: fixed;
+    box-shadow: 0px 0px 2px;
 }
 
 .navbar-logo {
@@ -294,11 +295,49 @@ footer {
     font-family: arial;
 }
 
+.additional {
+    margin: auto;
+    text-align: center;
+    margin-top: 14px;
+    margin-right: -6px;
+}
+
+/*Get funtion styles*/
 .reset_success {
     color: green;
     margin: 8px;
     font-family: arial;
+    margin-top: 12px;
 }
+.emptyfields {
+    margin: 0 auto;
+    margin-top: -16px;
+    color: red;
+    font-size: 15px;
+    font-family: 'Carter One', monospace;
+}
+.username {
+    color: red;
+    margin: 0 auto;
+    margin-top: -16px;
+    font-size: 15px;
+    font-family: 'Carter One', monospace;
+}
+.check_email {
+    color: green;
+    margin: 0 auto;
+    margin-top: -16px;
+    font-size: 15px;
+    font-family: 'Carter One', monospace;
+}
+.umaylogin {
+    color: green;
+    margin: 0 auto;
+    font-size: 15px;
+    margin-top: -16px;
+    font-family: 'Carter One', monospace;
+}
+
 /*____________@MEDIA QUERY____________________#####################################*/
 @media screen and (max-width: 600px) {
     
@@ -412,7 +451,7 @@ footer {
     
     .nav-login form input {
         float: left;
-        width: 100px;
+        width: 78px;
         height: 30px;
         padding: 0px 10px;
         margin-right: 10px;
@@ -430,10 +469,6 @@ footer {
         width: 47px;
         height: 30px;
         margin-top: 0px;
-        height: 30px;
-        margin-top: 0px;
-        height: 27px;
-        margin-top: 3px;
         margin-right: 10px;
         border: none;
         background-color: #f1f1f1;
@@ -561,7 +596,33 @@ footer {
     .additional {
         margin: auto;
         text-align: center;
-        margin-top: -10px;
-        margin-right: -87px;
-    }  
+        margin-top: 14px;
+        margin-right: -85px;
+    }
+
+    .section-default {
+        text-align: center;
+        font-family: 'Carter One', monospace;
+        margin-top: 100px;
+    }
+    .rnpbe-button {
+        width: 200px;
+        height: 25px;
+        background-color: gold;
+        border-radius: 4px;
+        font-family: arial;
+        font-size: 12px;
+    }
+    .eyea-input {
+        width: 180px;
+        height: 27px;
+        border-radius: 4px;
+        font-family: arial;
+    }
+    
+    .reset_success {
+        color: green;
+        margin: 8px;
+        font-family: arial;
+    }
 }

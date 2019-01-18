@@ -5,9 +5,9 @@
 <main>
     <div class="wrapper-main">
         <section class="section-default">
-            <h1 style="font-size: 20px;">Reset your password</h1>
+            <h1 style="font-size: 22px;">Reset your password</h1>
             <br>
-            <p>An email will be send to you with instructions on how to reset your password.</p>
+            <p>An email will be send to you with a link<br><br>that will allow you to reset your password.</p>
             <br>
             <form class="pwdresetform" action="../includes/reset-request.inc.php" method="post">
             <input class="eyea-input" type="text" name="email" placeholder="Enter your email address...">
@@ -16,7 +16,9 @@
         <?php
             if (isset($_GET["reset"])) {
                 if ($_GET["reset"] == "success") {
-                    echo "<p>Check your email!</p>";
+                    echo '<p style="color: #2e9629;
+                    margin-top: 6px;
+                    font-size: 16px;">Check your email!</p>';
                 }
             }
         ?>

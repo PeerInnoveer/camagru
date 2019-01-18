@@ -10,6 +10,28 @@
             <input type="password" name="pwd-confirm" placeholder="Confirm Password">
             <button type="Submit" name="signup-submit">Signup</button>
         </form>
+        <?php
+            if (isset($_GET["error"])) {
+                if ($_GET["error"] == "emptyfields") {
+                    echo '<div class="emptyfields"><p>Please enter all fields!</p></div>';
+                } 
+            }
+            if (isset($_GET["errorUid"])) {
+                if ($_GET["errorUid"] == "usernameShort") {
+                    echo '<div class="username"><p>Username needs to be 5 or more characters.</p></div>';
+                }
+            }
+            if (isset($_GET["verified"])) {
+                if ($_GET["verified"] == "check_email") {
+                    echo '<div class="check_email"><p>Please check your email for a link to verify your registration.</p></div>';
+                }
+            }
+            if (isset($_GET["success"])) {
+                if ($_GET["success"] == "you_may_login") {
+                    echo '<div class="umaylogin"><p>Email verified, you may login.</p></div>';
+                }
+            }
+        ?>
 </div>
 <div class="additional">
         <p class="agree">By clicking on Signup, you agree to Camguru's <br><a href="cookie_policy.php" target="_blank" style="color: darkblue;">Cookie</a> and 
@@ -18,7 +40,7 @@
         <?php
             if (isset($_GET["newpwd"])) {
                 if ($_GET["newpwd"] == "passwordupdated") {
-                    echo '<p class="reset_success">Your password has been reset!<br>Go ahead and login</p>';
+                    echo '<p class="reset_success">Your password has been reset! Go ahead and login</p>';
                 }
             }
         ?>
