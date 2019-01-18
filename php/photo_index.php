@@ -8,27 +8,17 @@
     </head>
     <body>
         <div class="booth">
-         <video id="video" width="400" height="300"></video>
-            <a href="#" id="capture" class="booth-capture-button"
-                style="display: block;
-                        margin: -4px 0px 0px 0px;
-                        padding: 10px 20px;
-                        background-color: cornflowerblue;
-                        color: #fff;
-                        text-align: center;
-                        text-decoration: none;
-                    ">Take photo</a>
-                    <canvas id="canvas" width="400" height="300"></canvas>
+            <video id="video" class="video_class"></video>
+                <a href="#" id="capture" class="booth-capture-button">Take photo</a>
+                <canvas id="canvas" class="canvas_class" width="400" height="300"></canvas>
         </div>
-            <button class="back-button"
-            style="
-                    width: 85px;
-                    height: 35px;
-                    border-radius: 4px;
-                    background-color: #f2f2f2;
-                    "> <a href="index.php" style="text-decoration: none;
-                    font-family: arial;
-                    color: blue;">Back</a> </button>
+        <br>
+        <div class="button_booth">
+                <button class="back-button"><a class="b1_style" href="index.php">Back</a> </button>
+                <button class="upload"><a class="b2_style" href="#">Upload</a> </button>
+                <button class="set_as_p"><a class="b3_style" href="#">Set as profile pic</a> </button>
+                <button class="filters"><a class="b4_style" href="#">Filters/stickers</a> </button>
+            </div>
         <script src="../javascript/photo.js"></script>
     </body>
 </html>

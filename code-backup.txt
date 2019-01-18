@@ -107,3 +107,56 @@ $stmt = $conn->prepare("SELECT user_uid FROM users WHERE user_uid=?");
         $resultCheck = mysqli_stmt_num_rows($stmt);
         $resultCheck = $stmt->results;
         $resultCheck = sizeof($resultCheck); //do some fiddling here
+
+
+
+.canvas_class {
+    width: 400px;
+    height: 300px;
+}
+.video_class {
+    width: 400px;
+    height: 300px;
+}
+
+.booth-capture-button {
+    display: block;
+    margin: -4px 0px 0px 0px;
+    padding: 10px 20px;
+    background-color: cornflowerblue;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+}
+.back-button {
+    width: 85px;
+    height: 35px;
+    border-radius: 4px;
+    background-color: #f2f2f2;
+}
+.b_style {
+    text-decoration: none;
+    font-family: arial;
+    color: blue;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/photo.css"/>
+        <link rel="stylesheet" href="../stylesheets/photo.css">
+    </head>
+    <body>
+        <div class="booth">
+            <video id="video" class="video_class"></video>
+            <a href="#" id="capture" class="booth-capture-button">Take photo</a>
+            <canvas id="canvas" class="canvas_class"></canvas>
+        </div>
+            <button class="back-button">
+                <a class="b_style" href="index.php">Back</a> </button>
+        <script src="../javascript/photo.js"></script>
+    </body>
+</html>
