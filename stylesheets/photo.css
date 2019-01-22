@@ -1,8 +1,21 @@
 .booth {
+    margin: 0 auto;
     width: 400px;
     background-color: #ccc;
     border:10px solid rgb(44, 82, 153);
     margin: 0 auto;
+    border-radius: 15px 15px 0px 0px;
+}
+
+.booth-capture-button {
+    display: block;
+    width: 420px;
+    margin: 0 auto;
+    background-color: rgb(44, 82, 153);
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 45px;
 }
 
 .video_class {
@@ -10,63 +23,68 @@
     height: 300px;
 }
 
-.booth-capture-button {
-    display: block;
-    margin: -4px 0px 0px 0px;
-    background-color: rgb(44, 82, 153);
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-    font-size: 45px;
-    border-radius: 10px 10px 0px 0px;
-}
-
 .canvas_class {
-    margin-bottom: -4px;
+    margin-bottom: -22px;
+}
+.photo_class {
+    margin-top: -285px;
+    margin-bottom: -1px;
 }
 
 .button_booth {
     background-color: #f2f2f2;
-    width: 400px;
+    width: 420px;
     margin: 0 auto;
-    margin-top: -15px;
+    margin-top: -18px;
     border-radius: 10px 0px 10px 10px;
 }
 
 .back-button {
-    width: 100px;
-    height: 35px;
+    width: 105px;
+    height: 45px;
     background-color: #f2f2f2;
-    float: left;
     border-radius: 0px 0px 0px 10px;
+}
+.back_icon {
+    font-size: 30px;
+    color: rgb(44, 82, 153);
 }
 
 .upload {
-    width: 100px;
-    height: 35px;
+    width: 105px;
+    height: 45px;
+    margin-right: 3px;
     background-color: #f2f2f2;
+    margin-left: -5px;
+}
+.upload_icon {
+    font-size: 30px;
+    color: rgb(44, 82, 153);
 }
 
 .set_as_p {
-    width: 100px;
-    height: 35px;
-    margin-top: 10px;
+    width: 105px;
+    height: 45px;
+    width: 105px;
     background-color: #f2f2f2;
     margin-left: 40px;
-    margin: -4px;
-    padding: 10px;
+    margin: -6px;
+}
+.set_as_p_icon {
+    font-size: 30px;
+    height: 45px;
+    color: rgb(44, 82, 153);
+    margin-bottom: -15px;
+    margin-left: -8px;
 }
 
 .filters {
-    width: 100px;
-    height: 35px;
+    width: 106px;
+    height: 45px;
     background-color: #f2f2f2;
     border-radius: 0px 0px 10px 0px;
 }
-
-.b1_style, .b2_style, .b3_style, .b4_style {
-    text-decoration: none;
-    font-family: arial;
-    color: black;
-    margin: -10px;
+.filter_icon {
+    font-size: 30px;
+    color: rgb(44, 82, 153);
 }

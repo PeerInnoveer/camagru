@@ -1,6 +1,7 @@
 (function() {
     var video = document.getElementById('video'),
     canvas = document.getElementById('canvas'),
+    photo = document.getElementById('photo'),
     context = canvas.getContext('2d'),
     vendorUrl = window.URL || window.webkitURL;
 
@@ -21,5 +22,31 @@
 
     document.getElementById('capture').addEventListener('click', function() {
         context.drawImage(video, 0, 0, 400, 300);
+        photo.setAttribute('src', canvas.toDataURL('image/png'))
+    });
+    document.getElementById('upload').addEventListener('click', function() {
+        var picture = (encodeURIComponent(JSON.stringify(photo.src)));
+        console.log(picture);
     });
 })();
+
+
+
+/*document.getElementById('upload').addEventListener('click', function() {
+        var hr = new XMLHttpRequest();
+        var url = "../includes/photo.inc.php";
+        var id = '<?php echo ($_SESSION["user_uid"]); ?>'; // find username
+        var picture = (encodeURIComponent(JSON.stringify(photo.src)));
+        var vars = "user_uid="+id+"&picture="+picture;
+        hr.open("POST", url, true);
+        hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        hr.onreadystatechange = function(){
+            if (hr.readyState == 4 && hr.status == 200){
+                var return_data = hr.responseText;
+                document.getElementById("status").innerHTML = return_data;
+            }
+        }
+        hr.send(vars);
+        console.log(id);
+        // add picture to database
+    });*/
