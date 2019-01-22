@@ -1,14 +1,7 @@
 * {
     margin: 0 auto;
 }
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> 7f3a1f05b148bb3c6c1562d50d8e45b5d90fa4d8
->>>>>>> c7fbdb6f4c53a5e5b77629721a5ae422f7cc3ebf
 body h2 {
     padding-top: 10px;
     text-align: center;
@@ -27,42 +20,30 @@ img {
     font-family: 'Oswald', sans-serif;
     font-size: 17px;
     width: 800px;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> c7fbdb6f4c53a5e5b77629721a5ae422f7cc3ebf
+
     background-image: linear-gradient(white, white);
     border: 10px solid rgb(95, 123, 185);
     padding: 30px;
     margin-top: 60px;
-<<<<<<< HEAD
-=======
-=======
+
+
     background-image: linear-gradient(white, #324b1a);
     border: 10px solid rgb(95, 123, 185);
     padding: 10px;
->>>>>>> 7f3a1f05b148bb3c6c1562d50d8e45b5d90fa4d8
->>>>>>> c7fbdb6f4c53a5e5b77629721a5ae422f7cc3ebf
+
 }
 
 .cpf {
     font-family: 'Oswald', sans-serif;
     font-size: 18px;
     width: 800px;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> c7fbdb6f4c53a5e5b77629721a5ae422f7cc3ebf
+
     background-image: linear-gradient(white, white);
     border: 10px solid rgb(95, 123, 185);
     padding: 30px;
     margin-top: 60px;
-<<<<<<< HEAD
-=======
-=======
+
     background-image: linear-gradient(white, #324b1a);
     border: 10px solid rgb(95, 123, 185);
     padding: 10px;
->>>>>>> 7f3a1f05b148bb3c6c1562d50d8e45b5d90fa4d8
->>>>>>> c7fbdb6f4c53a5e5b77629721a5ae422f7cc3ebf
 }

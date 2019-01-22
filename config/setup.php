@@ -15,7 +15,7 @@ try {
                     `user_uid` varchar(255) NOT NULL,
                     `user_email` varchar(255) NOT NULL,
                     `user_pwd` varchar(255) NOT NULL,
-                    `vkey` varchar(45),
+                    `vkey` varchar(255),
                     `verified` tinyint(1),
                     `createdate` timestamp(6)
                     ) ENGINE=MyISAM DEFAULT CHARSET=utf8;

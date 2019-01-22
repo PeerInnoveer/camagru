@@ -1,7 +1,7 @@
 .booth {
     width: 400px;
     background-color: #ccc;
-    border:10px solid rgb(95, 123, 185);
+    border:10px solid rgb(44, 82, 153);
     margin: 0 auto;
 }
 
@@ -13,11 +13,12 @@
 .booth-capture-button {
     display: block;
     margin: -4px 0px 0px 0px;
-    padding: 10px 20px;
-    background-color: cornflowerblue;
+    background-color: rgb(44, 82, 153);
     color: #fff;
     text-align: center;
     text-decoration: none;
+    font-size: 45px;
+    border-radius: 10px 10px 0px 0px;
 }
 
 .canvas_class {
@@ -27,23 +28,27 @@
 .button_booth {
     background-color: #f2f2f2;
     width: 400px;
+    margin: 0 auto;
+    margin-top: -15px;
+    border-radius: 10px 0px 10px 10px;
 }
 
 .back-button {
-    width: 85px;
+    width: 100px;
     height: 35px;
     background-color: #f2f2f2;
-    margin-left: 25px;
+    float: left;
+    border-radius: 0px 0px 0px 10px;
 }
 
 .upload {
-    width: 85px;
+    width: 100px;
     height: 35px;
     background-color: #f2f2f2;
 }
 
 .set_as_p {
-    width: 85px;
+    width: 100px;
     height: 35px;
     margin-top: 10px;
     background-color: #f2f2f2;
@@ -53,9 +58,10 @@
 }
 
 .filters {
-    width: 85px;
+    width: 100px;
     height: 35px;
     background-color: #f2f2f2;
+    border-radius: 0px 0px 10px 0px;
 }
 
 .b1_style, .b2_style, .b3_style, .b4_style {

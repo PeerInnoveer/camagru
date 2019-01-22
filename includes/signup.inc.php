@@ -10,7 +10,7 @@ if (isset($_POST['signup-submit'])) {
     $password_confirm = $_POST['pwd-confirm'];
     
     
-    //_______Error Handlers
+    ////////////////////////////////Error Handlers
     if (empty($username) || empty($email) || empty($password) || empty($password_confirm)) {
         header("Location: ../php/signup.php?error=emptyfields&uid=".$username."&mail=".$email);
         exit();
@@ -30,8 +30,7 @@ if (isset($_POST['signup-submit'])) {
         header("Location: ../php/signup.php?errorUid=usernameShort&mail=".$email);
         exit();
     }
-    //_______End of Error Handlers
-    else {
+    else { //////////////Checks if username exists.
         $sql = "SELECT user_uid FROM users WHERE user_uid=?";
         $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -47,9 +46,26 @@ if (isset($_POST['signup-submit'])) {
         if ($resultCheck > 0) {
         header("Location: ../php/signup.php?error=usertaken&mail=".$email);
             exit();
+    }
+    else { ////////////Checks if email exists.
+        $sql = "SELECT user_email FROM users WHERE user_email=?";
+        $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("Location: ../php/signup.php?error=sqlerror");
+        exit();
+    } else {
+        mysqli_stmt_bind_param($stmt, "s", $email);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_store_result($stmt);
+        $resultCheck = mysqli_stmt_num_rows($stmt);
+        $emailCheck = mysqli_stmt_num_rows($stmt);
+
+        if ($resultCheck > 0) {
+        header("Location: ../php/signup.php?error=email_taken&mail=".$username);
+            exit();
     } else {
         //Generate vkey
-        $vkey = md5(time(). $username);
+        $vkey = hash('sha256', $username);
         $sql = "INSERT INTO users (user_uid, user_email, user_pwd, vkey) VALUES (?, ?, ?, ?)";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -61,7 +77,7 @@ if (isset($_POST['signup-submit'])) {
         mysqli_stmt_execute($stmt);
         //Send email
         $mail = file_get_contents('../php/mail.html');
-        $link = "http://localhost:8080/camagru/php/verify.php?vkey=$vkey";
+        $link = "Please click the link to verify your Registration: http://localhost:8080/camagru/php/verify.php?vkey=$vkey";
 
         $to = $email;
         $subject = "Email Verification";
@@ -74,6 +90,8 @@ if (isset($_POST['signup-submit'])) {
         mail($to, $subject, $message, $headers);
         header("Location: ../php/signup.php?verified=check_email");
         }
+    }
+    }
     }
     }
     }

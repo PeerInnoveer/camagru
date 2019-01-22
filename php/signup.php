@@ -28,7 +28,7 @@
             }
             if (isset($_GET["success"])) {
                 if ($_GET["success"] == "you_may_login") {
-                    echo '<div class="umaylogin"><p>Email verified, you may login.</p></div>';
+                    echo '<div class="umaylogin"><p>Your Email has been verified, you may login.</p></div>';
                 }
             }
         ?>
