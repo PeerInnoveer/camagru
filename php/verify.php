@@ -14,8 +14,7 @@ if (isset($_GET['vkey'])) {
         $update = $conn->query("UPDATE users SET verified = 1 WHERE vkey = '$vkey' LIMIT 1");
 
         if ($update) {
-            //header("Location:signup.php?success=you_may_login");
-            echo "Your account has been verified. You may now login.";
+            header("Location:signup.php?success=you_may_login");
         } else {
             echo "error";
         }

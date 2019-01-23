@@ -20,30 +20,22 @@ img {
     font-family: 'Oswald', sans-serif;
     font-size: 17px;
     width: 800px;
-
-    background-image: linear-gradient(white, white);
+    background-image: url(../img/Trees_1400x900-1024x658.png);
+    /*background-image: linear-gradient(white, white);*/
     border: 10px solid rgb(95, 123, 185);
     padding: 30px;
     margin-top: 60px;
-
-
-    background-image: linear-gradient(white, #324b1a);
-    border: 10px solid rgb(95, 123, 185);
-    padding: 10px;
-
 }
 
 .cpf {
     font-family: 'Oswald', sans-serif;
     font-size: 18px;
     width: 800px;
-
-    background-image: linear-gradient(white, white);
+    background-image: url(../img/Trees_1400x900-1024x658.png);
+    /*background-image: linear-gradient(white, white);*/
     border: 10px solid rgb(95, 123, 185);
     padding: 30px;
     margin-top: 60px;
-
-    background-image: linear-gradient(white, #324b1a);
-    border: 10px solid rgb(95, 123, 185);
-    padding: 10px;
+    /*opacity: 0.5; /* Firefox, Chrome, Safari, Opera, IE >= 9 (preview)
+    filter:alpha(opacity=50);*/
 }

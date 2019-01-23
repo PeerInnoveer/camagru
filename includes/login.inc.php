@@ -12,7 +12,7 @@ if (isset($_POST['login-submit'])) {
         exit();
     }
     else {
-        $sql = "SELECT * FROM users WHERE user_uid=? OR user_email=?;";
+        $sql = "SELECT * FROM users WHERE (user_uid=? OR user_email=?) AND verified=1;";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
             header("Location: ../php/index.php?error=sqlerror");

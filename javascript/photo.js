@@ -26,17 +26,9 @@
     });
     document.getElementById('upload').addEventListener('click', function() {
         var picture = (encodeURIComponent(JSON.stringify(photo.src)));
-        console.log(picture);
-    });
-})();
-
-
-
-/*document.getElementById('upload').addEventListener('click', function() {
         var hr = new XMLHttpRequest();
         var url = "../includes/photo.inc.php";
         var id = '<?php echo ($_SESSION["user_uid"]); ?>'; // find username
-        var picture = (encodeURIComponent(JSON.stringify(photo.src)));
         var vars = "user_uid="+id+"&picture="+picture;
         hr.open("POST", url, true);
         hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -47,6 +39,9 @@
             }
         }
         hr.send(vars);
-        console.log(id);
-        // add picture to database
-    });*/
+        //console.log(picture);
+    });
+})();
+
+/*MY GOAL IS TO SEND -var picture to database when clicking on upload and also displaying
+    it on the main page -index.php....*/ 

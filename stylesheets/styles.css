@@ -337,6 +337,13 @@ footer {
     margin-top: -16px;
     font-family: 'Carter One', monospace;
 }
+.verify_email {
+    color: green;
+    margin: 0 auto;
+    font-size: 15px;
+    margin-top: -16px;
+    font-family: 'Carter One', monospace;
+}
 
 /*____________@MEDIA QUERY____________________#####################################*/
 @media screen and (max-width: 600px) {

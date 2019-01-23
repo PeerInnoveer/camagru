@@ -27,6 +27,7 @@ try {
                     `pwdResetExpires` TEXT NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8;
                 CREATE TABLE `images` (
                     `image_id` int(11) NOT NULL,
+                `image` varchar(255) NOT NULL,
                     `description` varchar(255) NOT NULL,
                     `user_id` int(11) NOT NULL,
                     `like_count` int(11) NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8;

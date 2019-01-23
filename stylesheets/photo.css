@@ -1,21 +1,10 @@
 .booth {
-    margin: 0 auto;
     width: 400px;
     background-color: #ccc;
     border:10px solid rgb(44, 82, 153);
     margin: 0 auto;
+    margin-top: 110px;
     border-radius: 15px 15px 0px 0px;
-}
-
-.booth-capture-button {
-    display: block;
-    width: 420px;
-    margin: 0 auto;
-    background-color: rgb(44, 82, 153);
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-    font-size: 45px;
 }
 
 .video_class {
@@ -31,11 +20,23 @@
     margin-bottom: -1px;
 }
 
+.capture_button {
+    width: 420px;
+    margin: 0 auto;
+    margin-top: -18px;
+    background-color: rgb(44, 82, 153);
+    text-align: center;
+    font-size: 45px;
+}
+.cam_icon {
+    color: #fff;
+    padding-bottom: 12px;
+}
+
 .button_booth {
     background-color: #f2f2f2;
     width: 420px;
     margin: 0 auto;
-    margin-top: -18px;
     border-radius: 10px 0px 10px 10px;
 }
 
@@ -56,6 +57,7 @@
     margin-right: 3px;
     background-color: #f2f2f2;
     margin-left: -5px;
+    margin-right: 3px;
 }
 .upload_icon {
     font-size: 30px;
@@ -65,24 +67,21 @@
 .set_as_p {
     width: 105px;
     height: 45px;
-    width: 105px;
     background-color: #f2f2f2;
-    margin-left: 40px;
-    margin: -6px;
+    margin-left: -5px;
+    margin-right: -7px;
 }
 .set_as_p_icon {
     font-size: 30px;
-    height: 45px;
     color: rgb(44, 82, 153);
-    margin-bottom: -15px;
-    margin-left: -8px;
 }
 
 .filters {
-    width: 106px;
+    width: 105px;
     height: 45px;
     background-color: #f2f2f2;
     border-radius: 0px 0px 10px 0px;
+    margin-left: 2px;
 }
 .filter_icon {
     font-size: 30px;
