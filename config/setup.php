@@ -3,7 +3,7 @@
 require 'database.php';
 
 try {
-    $db_conn= new PDO("mysql:host={$db_host}", $db_user, $db_pass);
+    $db_conn= new PDO("mysql:host=$db_host", $db_user, $db_pass);
     // set the PDO error mode to exception
     $db_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "CREATE DATABASE IF NOT EXISTS camagru";
@@ -27,9 +27,9 @@ try {
                     `pwdResetExpires` TEXT NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8;
                 CREATE TABLE `images` (
                     `image_id` int(11) NOT NULL,
-                `image` varchar(255) NOT NULL,
+                    `image` LONGTEXT NOT NULL,
+                    `u_name` varchar(255) NOT NULL,
                     `description` varchar(255) NOT NULL,
-                    `user_id` int(11) NOT NULL,
                     `like_count` int(11) NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8;
                 CREATE TABLE `comments` (
                     `comment_id` int(11) NOT NULL,

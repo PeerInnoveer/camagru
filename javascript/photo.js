@@ -26,7 +26,6 @@
     });
     document.getElementById('upload').addEventListener('click', function() {
         var picture = (encodeURIComponent(JSON.stringify(photo.src)));
-        //console.log(picture);
         var hr = new XMLHttpRequest();
         var url = "../includes/photo.inc.php";
         var id = '<?php echo ($_SESSION["userUid"]); ?>'; // find username
@@ -41,7 +40,4 @@
         }
         hr.send(vars);
     });
-})();
-
-/*MY GOAL IS TO SEND -var picture to database when clicking on upload and also displaying
-    it on the main page -index.php....*/ 
+})(); 

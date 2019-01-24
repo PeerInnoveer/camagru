@@ -1,14 +1,26 @@
 <?php
 session_start();
-require 'dbh.inc.php';
+require '../config/database.php';
 
-if ((isset($_POST['userUid'])) && (isset($_POST['picture']))) {
-    $username = $_SESSION['userUid'];
+//require 'dbh.inc.php';
+
+if ((isset($_SESSION['userUid'])) && (isset($_POST['picture']))) {
+    $username = "'".$_SESSION['userUid']."'";
     $picture = $_POST['picture'];
-    echo($_SESSION['userUid']);
+    $description = '"Hello"';
+    $like_count = 5;
     
-    $sql = "INSERT INTO images (`image`, `user_id`) VALUES (picture, userId)";
-    $stmt = mysqli_stmt_init($conn);
-    mysqli_stmt_prepare($stmt, $sql);
-    mysqli_stmt_execute($stmt);
+    try {
+    $db_conn= new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
+    // set the PDO error mode to exception
+    $db_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "INSERT INTO images (`image`, `u_name`, `description`, `like_count`) VALUES ($picture, $username, $description, $like_count)";
+    // echo $sql;
+    $db_conn->exec($sql);
+    
+    } catch(PDOException $e)
+    {
+        echo $e->getMessage();
+    }
+$db_conn = null;
 }
