@@ -33,26 +33,26 @@
                     <?php
                         if (isset($_SESSION['userUid'])) {
                             echo '<form action="../includes/logout.inc.php" method="POST">
-                        <button type="submit" name="logout-submit">Logout</button>
-                    </form>';
-                    echo '<li class="username_style">'.$_SESSION["userUid"].'</li>
+                            <button type="submit" name="logout-submit">Logout</button>
+                            </form>';
+                            echo '<li><a class="username_style" href="profile.php">'.$_SESSION["userUid"].'</a></li>
                             <li><a href="photo_index.php"><i class="cam_icon fa fa-camera-retro"></i></a></li>
-                            <li><a href="profile.php"><i class="profile_icon far fa-user-circle"></i></a></li>
                             <li><a href="#"><i class="settings_icon fas fa-cog"></i></a></li>';
                         } else {
                             echo '<form class="login-form" action="../includes/login.inc.php" method="POST">
                             <input type="text" name="mailuid" placeholder="Username/e-mail">
                             <input type="password" name="pwd" placeholder="Password">
                             <button type="submit" name="login-submit">Login</button>
-                        </form>';
-                        //header("Location: ../includes/signup.inc.php");
+                            </form>';
+                            //header("Location: ../includes/signup.inc.php");
                         }
-                    ?>
+                        ?>
                     </div>
-                </li>
+                        </li>
                 <?php
                 ?>
             </ul> 
         </div>
     </nav>
 </header>
+                <!-- <li><a href="profile.php"><i class="profile_icon far fa-user-circle"></i></a></li> -->

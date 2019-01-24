@@ -22,5 +22,8 @@ if ((isset($_SESSION['userUid'])) && (isset($_POST['picture']))) {
     {
         echo $e->getMessage();
     }
+    if ($sql) {
+        echo ("Image saved, Yeahh booooiii!!");
+    }
 $db_conn = null;
 }

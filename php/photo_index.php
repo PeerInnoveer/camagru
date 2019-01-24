@@ -24,7 +24,7 @@
             </div>
             <div class="button_booth">
                 <button class="back-button"><a class="b1_style" href="index.php"><i class="back_icon fas fa-arrow-circle-left"></i></a></button>
-                <button id="upload" class="upload"><a href="#"><i class="upload_icon fas fa-upload"></i></a></button>
+                <button id="upload" class="upload" ><a href="#"><i class="upload_icon fas fa-upload"></i></a></button>
                 <button class="set_as_p"><a class="set_pic" href="#"><i class="set_as_p_icon far fa-user-circle"></i></a></button>
                 <button class="filters"><a class="filters" href="#"><i class="filter_icon fas fa-filter"></i></a> </button>
             </div>
