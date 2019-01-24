@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+
+<?php
+    session_start();
+    //require 'header.php';
+?>
+
 <html lang="en">
     <head>
         <meta charset="UTF-8">

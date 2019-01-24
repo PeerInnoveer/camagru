@@ -26,10 +26,11 @@
     });
     document.getElementById('upload').addEventListener('click', function() {
         var picture = (encodeURIComponent(JSON.stringify(photo.src)));
+        //console.log(picture);
         var hr = new XMLHttpRequest();
         var url = "../includes/photo.inc.php";
-        var id = '<?php echo ($_SESSION["user_uid"]); ?>'; // find username
-        var vars = "user_uid="+id+"&picture="+picture;
+        var id = '<?php echo ($_SESSION["userUid"]); ?>'; // find username
+        var vars = "userUid="+id+"&picture="+picture;
         hr.open("POST", url, true);
         hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         hr.onreadystatechange = function(){
@@ -39,7 +40,6 @@
             }
         }
         hr.send(vars);
-        //console.log(picture);
     });
 })();
 

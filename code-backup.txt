@@ -160,3 +160,19 @@ $stmt = $conn->prepare("SELECT user_uid FROM users WHERE user_uid=?");
         <script src="../javascript/photo.js"></script>
     </body>
 </html>
+
+////////////Checks if email exists.
+        $sql = "SELECT user_email FROM users WHERE user_email=?";
+        $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("Location: ../php/signup.php?error=sqlerror");
+        exit();
+    } else {
+        mysqli_stmt_bind_param($stmt, "s", $email);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_store_result($stmt);
+        $emailCheck = mysqli_stmt_num_rows($stmt);
+
+        if ($resultCheck > 0) {
+        header("Location: ../php/signup.php?error=email_taken&mail=".$username);
+            exit();

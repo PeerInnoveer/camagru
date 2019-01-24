@@ -43,7 +43,13 @@ nav {
     font-family: 'Carter One', monospace;
     color: black;
 }
-
+.username_style {
+    margin-right: 300px;
+    margin-top: 18px;
+    font-weight: 600;
+    font-family: 'Carter One', monospace;
+    font-size: 22px;
+}
 
 .camlogo {
     font-weight: 900;

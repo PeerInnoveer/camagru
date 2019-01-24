@@ -41,27 +41,9 @@ if (isset($_POST['signup-submit'])) {
         mysqli_stmt_execute($stmt);
         mysqli_stmt_store_result($stmt);
         $resultCheck = mysqli_stmt_num_rows($stmt);
-        $emailCheck = mysqli_stmt_num_rows($stmt);
 
         if ($resultCheck > 0) {
         header("Location: ../php/signup.php?error=usertaken&mail=".$email);
-            exit();
-    }
-    else { ////////////Checks if email exists.
-        $sql = "SELECT user_email FROM users WHERE user_email=?";
-        $stmt = mysqli_stmt_init($conn);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("Location: ../php/signup.php?error=sqlerror");
-        exit();
-    } else {
-        mysqli_stmt_bind_param($stmt, "s", $email);
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_store_result($stmt);
-        $resultCheck = mysqli_stmt_num_rows($stmt);
-        $emailCheck = mysqli_stmt_num_rows($stmt);
-
-        if ($resultCheck > 0) {
-        header("Location: ../php/signup.php?error=email_taken&mail=".$username);
             exit();
     } else {
         //Generate vkey
@@ -90,8 +72,6 @@ if (isset($_POST['signup-submit'])) {
         mail($to, $subject, $message, $headers);
         header("Location: ../php/signup.php?verified=check_email");
         }
-    }
-    }
     }
     }
     }

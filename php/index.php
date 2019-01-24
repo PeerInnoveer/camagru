@@ -8,9 +8,7 @@
 <div class="main-content">
     <!-- gallery of photos -->
     <div class="gallery">
-
     </div>
-
 </div>
 
 <?php

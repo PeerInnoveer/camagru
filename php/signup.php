@@ -33,7 +33,7 @@
             }
             if (isset($_GET["error"])) {
                 if ($_GET["error"] == "no_user") {
-                    echo '<div class="verify_email"><p>Registration not verified, check your email for a link.</p></div>';
+                    echo '<div class="verify_email"><p>If your registration has been verified<br>you could of entered an incorrect username or password,<br>if not check your email for a link to verify your email address.</p></div>';
                 }
             }
         ?>
