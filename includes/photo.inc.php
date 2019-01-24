@@ -27,3 +27,7 @@ if ((isset($_SESSION['userUid'])) && (isset($_POST['picture']))) {
     }
 $db_conn = null;
 }
+
+//Fetch images from database and display on index.php
+
+    
