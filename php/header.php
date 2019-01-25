@@ -21,6 +21,7 @@
                 if (isset($_SESSION['userUid'])) {
                     echo '<div class="navbar-logo">
                     <a href="index.php"><strong>CamGuru</strong></a>
+                    <a href="signup.php"><i class="camlogo fas fa-camera"></i></a>
                     </div>';
                 } else echo '<div class="navbar-logo">
                 <a href="signup.php"><strong>CamGuru</strong></a>
