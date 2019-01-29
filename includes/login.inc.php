@@ -2,12 +2,11 @@
 
 require 'dbh.inc.php';
 
-$uid = $_POST['username'];
-$pwd = $_POST['pwd'];
 
 try {
-    
     if (isset($_POST['login-submit'])) {
+        $uid = $_POST['username'];
+        $pwd = $_POST['pwd'];
         
         if (empty($uid) || empty($pwd)) {
             header("Location: ../php/signup.php?error=emptyfields");

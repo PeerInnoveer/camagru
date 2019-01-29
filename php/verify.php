@@ -5,7 +5,7 @@ require '../includes/dbh.inc.php';
 if (isset($_GET['vkey'])) {
     //Process Verification
     $vkey = $_GET['vkey'];
-    $db_conn= new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
+    //$db_conn= new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
 
     $resultSet = $db_conn->query("SELECT verified, vkey FROM users WHERE verified = 0 AND vkey = '$vkey' LIMIT 1");
 

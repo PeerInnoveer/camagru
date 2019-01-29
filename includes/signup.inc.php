@@ -50,11 +50,10 @@ if (isset($_POST['signup-submit'])) {
                 $stmt->bindParam(':email', $email);
                 $stmt->bindParam(':Pwd', $hashedPwd);
                 $stmt->bindParam(':vkey', $vkey);
-                
-                $stmt->bindParam('ssss', $username, $email, $hashedPwd, $vkey);
+
                 $stmt->execute();
                 //Send email
-                $mail = file_get_contents('../php.mail.html');
+                $mail = file_get_contents('../php/mail.php');
                 $link = "Please click on the link to verify your Registration: http://localhost:8080/camagru/php/verify.php?vkey=$vkey";
                     
                     $to = $email;
