@@ -14,15 +14,15 @@
             $db_conn= new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
             // set the PDO error mode to exception
             $db_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "SELECT images.image FROM images";
-            // echo $sql;
+            $sql = "SELECT `image` FROM `images`";
+            
             if ( $db_conn->exec($sql)){
-                var_dump( 'CLick' );
+
             }
             
             } catch(PDOException $e)
             {
-                echo 'II  ' . $e->getMessage();
+                echo $e->getMessage();
             }
            
         $db_conn = null;

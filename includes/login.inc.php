@@ -1,36 +1,57 @@
 <?php
 
-require 'dbh.inc.php';
-
-
-try {
-    if (isset($_POST['login-submit'])) {
-        $uid = $_POST['username'];
-        $pwd = $_POST['pwd'];
-        
-        if (empty($uid) || empty($pwd)) {
-            header("Location: ../php/signup.php?error=emptyfields");
-            exit();
-    } else {
-        $query = "SELECT * FROM users WHERE user_uid = :username AND user_pwd = :pwd AND verified=1";
-        $stmt = $db_conn->prepare($query);
-        $stmt->execute(
-            array(
-                'user_uid' => $_POST["username"],
-                'user_pwd' => $_POST["pwd"],
-            )
-        );
-        $count = $stmt->rowCount();
-        if ($count > 0) {
-            $_SESSION["username"] = $_POST["username"];
-            header ("Location: ../php/index.php?login=success");
+if (isset($_POST['login-submit'])) {
+    
+    require 'dbh.inc.php';
+    
+    $uid = $_POST['username'];
+    $password = $_POST['pwd'];
+    
+    try {
+	    if ($uid != htmlspecialchars($_POST['username']) || $password != htmlspecialchars($_POST['pwd'])) {
+            header("Location: ../php/signup.php?error=nice_try");
+	        exit();
         }
-        else {
-            header("Location: ../php/signup.php?error=wrong_pwd");
-            exit();
-        }
+	    if (empty($uid) || empty($password)) {
+		    header("Location: ../php/signup.php?error=emptyfields");
+		    exit();
+	    } else {
+            if (!($stmt = $db_conn->prepare("SELECT * FROM users WHERE user_uid = :un"))) {
+                header("Location: ../php/signup.php?error=sqlerror");
+                exit();
+            } else {
+                $stmt->bindParam(':un', $uid);
+                $stmt->execute();
+                if ($row = $stmt->fetch()) {
+                    $pwdCheck = password_verify($password, $row['user_pwd']);
+				    if ($pwdCheck == false) {
+					    header("Location: ../php/signup.php?error=wrongpwd1");
+					    exit();
+				    } else if ($row['verified'] == NULL) {
+					    header("Location: ../php/signup.php?error=notverified");
+					    exit();
+				    } else if ($pwdCheck == true) {
+					    session_start();
+					    $_SESSION['userId'] = $row['user_id'];
+					    $_SESSION['userUid'] = $row['user_uid'];
+					    header("Location: ../php/signup.php?login=success");
+					    exit();
+				} else {
+					header("Location: ../php/signup.php?error=wrongpwd2");
+					exit();
+				}
+			} else {
+				header("Location: ../php/signup.php?error=nouser");
+            	exit();
+			}
+		}
     }
-}
-} catch (PDOexception $e) {
-    echo $e->getMessage();
+    } catch (PDOException $e) {
+        echo $e->getmessage();
+    }
+	$stmt = null;
+	$db_conn = null;
+} else {
+	header("Location: ../php/index.php");
+	exit();
 }

@@ -36,6 +36,11 @@
                     echo '<div class="verify_email"><p>If your registration has been verified<br>you could of entered an incorrect username or password,<br>if not check your email for a link to verify your email address.</p></div>';
                 }
             }
+            if (isset($_GET["error"])) {
+                if ($_GET["error"] == "bad_pwd") {
+                    echo '<div class="badPwd"><p>Weak password, password should contain atleast one Uppercase and lowercase letter, one number and a special character.</p></div>';
+                }
+            }
         ?>
 </div>
 <div class="additional">

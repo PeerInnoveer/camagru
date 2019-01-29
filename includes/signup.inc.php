@@ -1,5 +1,5 @@
 <?php
-
+    
 if (isset($_POST['signup-submit'])) {
 
     require 'dbh.inc.php';
@@ -20,18 +20,20 @@ if (isset($_POST['signup-submit'])) {
     } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         header("Location: ../php/signup.php?error=invalidmail&uid=".$username);
         exit();
-    } else if (!preg_match("/^[a-zA-Z0-9-]*$/", $username)) {
+    } else if (!preg_match("/^[a-zA-Z0-9-' ']*$/", $username)) {
         header("Location: ../php/signup.php?error=invaliduid&mail=".$email);
         exit();
     } else if ($Pwd !== $Pwd_confirm) {
         header("Location: ../php/signup.php?error=passwordcheck&uid=".$username."&mail=".$email);
         exit();
+    //} else if ((strlen($Pwd) < 6) || (strlen($Pwd) > 12) || (preg_match("/[A-Z]/", $Pwd)=== 0)) {
+       // header("Location: ../php/signup.php?error=bad_pwd&uid=".$username."&mail=".$email);
+       // exit();
     } else if (strlen($username) < 5 ) {
         header("Location: ../php/signup.php?errorUid=usernameShort&mail=".$email);
         exit();
-    
-        //Check if username exists.
     } try {
+        //Check if username exists.
         if (!$stmt = $db_conn->prepare("SELECT user_uid FROM users WHERE user_uid = :name")) {
             header("Location: ../php/signup.php?error=sqlerror");
             exit();
@@ -44,7 +46,7 @@ if (isset($_POST['signup-submit'])) {
         } else  {
             //Generate vkey
             $vkey = hash('sha256', $username);
-            $hashedPwd = hash('sha256', $Pwd);
+            $hashedPwd = password_hash($Pwd, PASSWORD_BCRYPT);
             $stmt = $db_conn->prepare("INSERT INTO users (user_uid, user_email, user_pwd, vkey) VALUES (:username, :email, :Pwd, :vkey)");
                 $stmt->bindParam(':username', $username);
                 $stmt->bindParam(':email', $email);

@@ -304,7 +304,7 @@ footer {
 }
 
 /*Get funtion styles*/
-.reset_success {
+.reset_success, .check_email, .umaylogin, .verify_email, .badPwd {
     position: absolute;
     width: 100%;
     background-color: white;
@@ -315,55 +315,11 @@ footer {
     padding: 5px;
     font-family: 'Carter One', monospace;
 }
-.emptyfields {
+.emptyfields, .username {
     position: absolute;
     width: 100%;
     background-color: white;
     color: rgb(192, 0, 0);
-    border-top: black;
-    top: 61px;
-    font-size: 15px;
-    padding: 5px;
-    font-family: 'Carter One', monospace;
-}
-.username {
-    position: absolute;
-    width: 100%;
-    background-color: white;
-    color: rgb(192, 0, 0);
-    border-top: black;
-    top: 61px;
-    font-size: 15px;
-    padding: 5px;
-    font-family: 'Carter One', monospace;
-}
-.check_email {
-    position: absolute;
-    width: 100%;
-    background-color: white;
-    color: green;
-    border-top: black;
-    top: 61px;
-    font-size: 15px;
-    padding: 5px;
-    font-family: 'Carter One', monospace;
-}
-.umaylogin {
-    position: absolute;
-    width: 100%;
-    background-color: white;
-    color: green;
-    border-top: black;
-    top: 61px;
-    font-size: 15px;
-    padding: 5px;
-    font-family: 'Carter One', monospace;
-}
-.verify_email {
-    position: absolute;
-    width: 100%;
-    background-color: white;
-    color: green;
     border-top: black;
     top: 61px;
     font-size: 15px;
