@@ -23,7 +23,7 @@
             }
             if (isset($_GET["verified"])) {
                 if ($_GET["verified"] == "check_email") {
-                    echo '<div class="check_email"><p>Please check your email for a link to verify your registration.</p></div>';
+                    echo '<div class="check_email"><p>Success! We`ve sent you an email, Please click on the confirmation link in the email to confirm your email address.</p></div>';
                 }
             }
             if (isset($_GET["success"])) {

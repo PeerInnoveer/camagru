@@ -99,6 +99,8 @@ input, select {
 
 
 
+
+
 php backup
 
 $stmt = $conn->prepare("SELECT user_uid FROM users WHERE user_uid=?");
@@ -107,6 +109,9 @@ $stmt = $conn->prepare("SELECT user_uid FROM users WHERE user_uid=?");
         $resultCheck = mysqli_stmt_num_rows($stmt);
         $resultCheck = $stmt->results;
         $resultCheck = sizeof($resultCheck); //do some fiddling here
+
+
+
 
 
 
@@ -139,6 +144,8 @@ $stmt = $conn->prepare("SELECT user_uid FROM users WHERE user_uid=?");
     font-family: arial;
     color: blue;
 }
+
+
 
 
 <!DOCTYPE html>
@@ -176,3 +183,57 @@ $stmt = $conn->prepare("SELECT user_uid FROM users WHERE user_uid=?");
         if ($resultCheck > 0) {
         header("Location: ../php/signup.php?error=email_taken&mail=".$username);
             exit();
+
+
+
+
+/*else {
+        $sql = "SELECT user_uid FROM users WHERE user_uid=?";
+        $stmt = mysqli_stmt_init($db_conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("Location: ../php/signup.php?error=sqlerror");
+        exit();
+    } else {
+        mysqli_stmt_bind_param($stmt, "s", $username);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_store_result($stmt);
+        $resultCheck = mysqli_stmt_num_rows($stmt);
+
+        if ($resultCheck > 0) {
+        header("Location: ../php/signup.php?error=usertaken&mail=".$email);
+            exit();
+    } else {
+        //Generate vkey
+        $vkey = hash('sha256', $username);
+        $sql = "INSERT INTO users (user_uid, user_email, user_pwd, vkey) VALUES (?, ?, ?, ?)";
+        $stmt = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            header("Location: ../php/signup.php?error=sqlerror");
+            exit();
+    } else {
+        $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
+        mysqli_stmt_bind_param($stmt, "ssss", $username, $email, $hashedPwd, $vkey);
+        mysqli_stmt_execute($stmt);
+        //Send email
+        $mail = file_get_contents('../php/mail.html');
+        $link = "Please click the link to verify your Registration: http://localhost:8080/camagru/php/verify.php?vkey=$vkey";
+
+        $to = $email;
+        $subject = "Email Verification";
+        $message = $link;
+        
+        //$headers = "From: peerinnoveergmail.com \r\n";
+        $headers = "MiME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        
+        mail($to, $subject, $message, $headers);
+        header("Location: ../php/signup.php?verified=check_email");
+        }
+    }
+    }
+    }
+    mysqli_stmt_close($stmt);
+    mysqli_close($db_conn);
+} else {
+    header("Location: ../php/signup.php");
+}*/

@@ -5,13 +5,13 @@ require '../includes/dbh.inc.php';
 if (isset($_GET['vkey'])) {
     //Process Verification
     $vkey = $_GET['vkey'];
-    $conn = mysqli_connect($servername, $dbUsername, $dbPassword, $dbName);
+    $db_conn= new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
 
-    $resultSet = $conn->query("SELECT verified, vkey FROM users WHERE verified = 0 AND vkey = '$vkey' LIMIT 1");
+    $resultSet = $db_conn->query("SELECT verified, vkey FROM users WHERE verified = 0 AND vkey = '$vkey' LIMIT 1");
 
     if (sizeof($resultSet) == 1) {
         //Validate The email
-        $update = $conn->query("UPDATE users SET verified = 1 WHERE vkey = '$vkey' LIMIT 1");
+        $update = $db_conn->query("UPDATE users SET verified = 1 WHERE vkey = '$vkey' LIMIT 1");
 
         if ($update) {
             header("Location:signup.php?success=you_may_login");

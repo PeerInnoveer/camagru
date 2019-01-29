@@ -41,7 +41,7 @@
                             <li><a href="#"><i class="settings_icon fas fa-cog"></i></a></li>';
                         } else {
                             echo '<form class="login-form" action="../includes/login.inc.php" method="POST">
-                            <input type="text" name="mailuid" placeholder="Username/e-mail">
+                            <input type="text" name="username" placeholder="Username">
                             <input type="password" name="pwd" placeholder="Password">
                             <button type="submit" name="login-submit">Login</button>
                             </form>';

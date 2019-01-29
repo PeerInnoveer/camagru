@@ -1,12 +1,10 @@
 <?php
+require '../config/database.php';
 
-$servername = "localhost";
-$dbUsername = "root";
-$dbPassword = "cheerio";
-$dbName = "camagru";
-
-$conn = mysqli_connect($servername, $dbUsername, $dbPassword, $dbName);
-
-if (!$conn) {
-    die("Connection failed: ".mysqli_connect_error()); //Only suitable for sql_database, make changes.
+try {
+    $db_conn= new PDO("mysql:host=$db_host; dbname=$db_name", $db_user, $db_pass);
+    $db_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    } catch(PDOException $e) {
+        echo $e->getMessage();
 }

@@ -189,9 +189,9 @@ header .nav-login a {
 /*_______signup form_________##############################################################*/
 
 .signup-form {
-    width: 400px;
+        width: 400px;
     margin: 0 auto;
-    padding: 30px;
+    padding: 80px;
     text-align: center;
 }
 
@@ -305,44 +305,69 @@ footer {
 
 /*Get funtion styles*/
 .reset_success {
+    position: absolute;
+    width: 100%;
+    background-color: white;
     color: green;
-    margin: 8px;
-    font-family: arial;
-    margin-top: 12px;
+    border-top: black;
+    top: 61px;
+    font-size: 15px;
+    padding: 5px;
+    font-family: 'Carter One', monospace;
 }
 .emptyfields {
-    margin: 0 auto;
-    margin-top: -16px;
-    color: red;
+    position: absolute;
+    width: 100%;
+    background-color: white;
+    color: rgb(192, 0, 0);
+    border-top: black;
+    top: 61px;
     font-size: 15px;
+    padding: 5px;
     font-family: 'Carter One', monospace;
 }
 .username {
-    color: red;
-    margin: 0 auto;
-    margin-top: -16px;
+    position: absolute;
+    width: 100%;
+    background-color: white;
+    color: rgb(192, 0, 0);
+    border-top: black;
+    top: 61px;
     font-size: 15px;
+    padding: 5px;
     font-family: 'Carter One', monospace;
 }
 .check_email {
+    position: absolute;
+    width: 100%;
+    background-color: white;
     color: green;
-    margin: 0 auto;
-    margin-top: -16px;
+    border-top: black;
+    top: 61px;
     font-size: 15px;
+    padding: 5px;
     font-family: 'Carter One', monospace;
 }
 .umaylogin {
+    position: absolute;
+    width: 100%;
+    background-color: white;
     color: green;
-    margin: 0 auto;
+    border-top: black;
+    top: 61px;
     font-size: 15px;
-    margin-top: -16px;
+    padding: 5px;
     font-family: 'Carter One', monospace;
 }
 .verify_email {
+    position: absolute;
+    width: 100%;
+    background-color: white;
     color: green;
-    margin: 0 auto;
+    border-top: black;
+    top: 61px;
     font-size: 15px;
-    margin-top: -16px;
+    padding: 5px;
     font-family: 'Carter One', monospace;
 }
 
