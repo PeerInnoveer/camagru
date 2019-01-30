@@ -1,12 +1,13 @@
 <?php
 
 if (isset($_POST["reset-password-submit"])) {
-
+    
+    
     $selector = $_POST["selector"];
     $validator = $_POST["validator"];
     $password = $_POST["pwd"];
     $passwordRepeat = $_POST["pwd-repeat"];
-
+    
     if (empty($password) || empty($passwordRepeat)) {
         header("Location: ../php/create-new-password.php?newpwd=empty");
         exit();
@@ -14,26 +15,26 @@ if (isset($_POST["reset-password-submit"])) {
         header("Location: ../php/create-new-password.php?newpwd=pwd-dont-match");
         exit();
     }
-
-    $currentDate = date("U");
-
-    require 'dbh.inc.php';
-
-    $sql = "SELECT * FROM pwdReset WHERE pwdResetSelector=? AND pwdResetExpires >= ?;";
-    $stmt = mysqli_stmt_init($conn);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        echo "There was an error!";
-        exit();
-    } else {
-        mysqli_stmt_bind_param($stmt, "ss", $selector, $currentDate);
-        mysqli_stmt_execute($stmt);
- 
-        $result = mysqli_stmt_get_result($stmt);
-        if (!$row = mysqli_fetch_assoc($result)) {
-            echo "You need to re-submit your reset request.";
+    
+    try {
+        $currentDate = date("U");
+        
+        require 'dbh.inc.php';
+        
+        
+        if (!($stmt = $db_conn->prepare("SELECT * FROM pwdReset WHERE pwdResetSelector = :pwdrs AND pwdResetExpires >= :pwdrex;"))) {
+            header("Location: ../php/reset-password.php?error=sqlerror");
             exit();
         } else {
+            $stmt->bindParam(':pwdrs', $selector);
+            $stmt->bindParam(':pwdrex', $currentDate);
+            $stmt->execute();
+        
+        if (!($row = $stmt->fetch())) {
+            header("Location: ../php/reset-password.php?error=resubmit_request");
+            exit();
 
+        } else {
             $tokenBin = hex2bin($validator);
             $tokenCheck = password_verify($tokenBin, $row["pwdResetToken"]);
 
@@ -41,37 +42,31 @@ if (isset($_POST["reset-password-submit"])) {
                 exit();
             } else if ($tokenCheck === true) {
                 $tokenEmail = $row['pwdResetEmail'];
-                $sql = "SELECT * FROM users WHERE user_email=?;";
-                $stmt = mysqli_stmt_init($conn);
-                if (!mysqli_stmt_prepare($stmt, $sql)) {
-                    echo "There was an error!";
+                if (!($sql = $db_conn->prepare("SELECT * FROM users WHERE user_email = :u_em;"))) {
+                    header("Location: ../php/reset-password.php?error=sqlerror");
                     exit();
                 } else {
-                    mysqli_stmt_bind_param($stmt, "s", $tokenEmail);
-                    mysqli_stmt_execute($stmt);
-                    $result = mysqli_stmt_get_result($stmt);
-                    if (!$row = mysqli_fetch_assoc($result)) {
-                        echo "There was an error!";
+                    $stmt->bindParam(':u_em', $tokenEmail);
+                    $stmt->execute();
+                    if (!($row = $stmt->fetch())) {
+                        header("Location: ../php/reset-password.php?error=fetch_error");
                         exit();
                     } else {
-                        $sql = "UPDATE users SET user_pwd=? WHERE user_email=?;";
-                        $stmt = mysqli_stmt_init($conn);
-                    if (!mysqli_stmt_prepare($stmt, $sql)) {
-                        echo "There was an error!";
-                        exit();
+                        if (!($sql = $db_conn->prepare("UPDATE users SET user_pwd = :u_pwd WHERE user_email = :u_em;"))) {
+                            header("Location: ../php/reset-password.php?error=sqlerror");
+                            exit();
                     } else {
                             $newPwdHash = password_hash($password, PASSWORD_DEFAULT);
-                            mysqli_stmt_bind_param($stmt, "ss", $newPwdHash, $tokenEmail);
-                            mysqli_stmt_execute($stmt);
+                            $stmt->bindParam(':u_pwd', $newPwdHash);
+                            $stmt->bindParam(':u_em', $tokenEmail);
+                            $stmt->execute();
 
-                            $sql = "DELETE FROM pwdReset WHERE pwdResetEmail=?;";
-                            $stmt = mysqli_stmt_init($conn);
-                            if (!mysqli_stmt_prepare($stmt, $sql)) {
-                                echo "There was an error!";
+                            if (!($sql = $db_conn->prepare("DELETE FROM pwdReset WHERE pwdResetEmail = :pwd_res_e;"))) {
+                                header("Location: ../php/reset-password.php?error=prep_error");
                                 exit();
                             } else {
-                                mysqli_stmt_bind_param($stmt, "s", $tokenEmail);
-                                mysqli_stmt_execute($stmt);
+                                $stmt->bindParam(':pwd_res_e', $tokenEmail);
+                                $stmt->execute();
                                 header("Location: ../php/signup.php?newpwd=passwordupdated");
                             }
                         }
@@ -80,6 +75,11 @@ if (isset($_POST["reset-password-submit"])) {
             }
         }
     }
+ } catch (PDOException $e) {
+    echo $e->getMessage();
+    }
+    $stmt = null;
+    $db_conn = null;
 } else {
     header("Location: ../php/index.php");
 }
