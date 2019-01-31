@@ -56,4 +56,3 @@
         </div>
     </nav>
 </header>
-                <!-- <li><a href="profile.php"><i class="profile_icon far fa-user-circle"></i></a></li> -->
