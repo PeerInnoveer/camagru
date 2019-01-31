@@ -27,8 +27,8 @@ if (isset($_POST['signup-submit'])) {
         header("Location: ../php/signup.php?error=passwordcheck&uid=".$username."&mail=".$email);
         exit();
     //} else if ((strlen($Pwd) < 6) || (strlen($Pwd) > 12) || (preg_match("/[A-Z]/", $Pwd)=== 0)) {
-      //  header("Location: ../php/signup.php?error=bad_pwd&uid=".$username."&mail=".$email);
-        //exit();
+        //header("Location: ../php/signup.php?error=bad_pwd&uid=".$username."&mail=".$email);
+       // exit();
     } else if (strlen($username) < 5 ) {
         header("Location: ../php/signup.php?errorUid=usernameShort&mail=".$email);
         exit();

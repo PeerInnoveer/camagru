@@ -34,7 +34,7 @@ if (isset($_POST['login-submit'])) {
 					    session_start();
 					    $_SESSION['userId'] = $row['user_id'];
 					    $_SESSION['userUid'] = $row['user_uid'];
-					    header("Location: ../php/signup.php?login=success");
+					    header("Location: ../php/index.php?login=success");
 					    exit();
 				} else {
 					header("Location: ../php/signup.php?error=wrongpwd2");
