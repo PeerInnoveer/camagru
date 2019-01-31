@@ -45,7 +45,7 @@ if (isset($_POST["reset-request-submit"])) {
             //$mail = '<a href="' . $url . '">' . $url . '</a></p>';
             $message = $mail;
             $message .= '<p>Here is your password reset link: </br>';
-            $message .= '<a href="' . $url . '">' . $url . '</a></p>';
+            $message .= '<button><a href="' . $url . '">' . $url . '</a></p></button>';
 
             //$headers = "FROM: Camguru Team <peerinnoveer@gmail.com>\r\n";
             $headers = "Reply-To: peerinnoveer@gmail.com\r\n";

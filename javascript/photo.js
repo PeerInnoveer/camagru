@@ -8,18 +8,17 @@
     navigator.getMedia =    navigator.getUserMedia ||
                             navigator.webkitGetUserMedia ||
                             navigator.mozGetUserMedia ||
-                            navigator.msGetUserMedia;
-    navigator.getMedia({
+                            navigator.msGetUserMedia; 
+        navigator.getMedia({
         video: true,
         audio: false
     }, function(stream) {
         video.srcObject = stream;
         video.play();
     }, function(error) {
-        // An error occured
-        // error.code
-    });
 
+    });
+    //Capturing image by drawing from video on to canvas.
     document.getElementById('capture').addEventListener('click', function() {
         context.drawImage(video, 0, 0, 400, 300);
         photo.setAttribute('src', canvas.toDataURL('image/png'))
@@ -40,4 +39,4 @@
         }
         hr.send(vars);
     });
-})(); 
+})();

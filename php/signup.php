@@ -59,8 +59,8 @@
         <br>
         <h5 class="you_mean">Get the app.</h5>
         <br>
-        <a class="g_play" href="#"><img style="max-width:180px; min-width:150px;" alt="GooglePlay"  src="../img/Googleplay.png" width=14.8%></a>
-        <a class="a_store" href="#"><img style="max-width:180px; min-width:150px;" alt="AppStore" src="../img/appStore.png"  width=15% ></a>
+        <a class="g_play" href="https://play.google.com/store?hl=en" target="_blank"><img style="max-width:180px; min-width:150px;" alt="GooglePlay"  src="../img/Googleplay.png" width=14.8%></a>
+        <a class="a_store" href="https://www.apple.com/za/ios/app-store/" target="_blank"><img style="max-width:180px; min-width:150px;" alt="AppStore" src="../img/appStore.png"  width=15% ></a>
 </div>
 <?php
     require 'footer.php';

@@ -1,9 +1,11 @@
 <?php
 session_start();
-require '../config/database.php';
+
+require 'dbh.inc.php';
 
 //require 'dbh.inc.php';
 
+//Receiving picture id from AJAX, and inserting image into database.
 if ((isset($_SESSION['userUid'])) && (isset($_POST['picture']))) {
     $username = "'".$_SESSION['userUid']."'";
     $picture = $_POST['picture'];
@@ -18,8 +20,7 @@ if ((isset($_SESSION['userUid'])) && (isset($_POST['picture']))) {
     // echo $sql;
     $db_conn->exec($sql);
     
-    } catch(PDOException $e)
-    {
+    } catch(PDOException $e) {
         echo $e->getMessage();
     }
     if ($sql) {
@@ -28,6 +29,17 @@ if ((isset($_SESSION['userUid'])) && (isset($_POST['picture']))) {
 $db_conn = null;
 }
 
-//Fetch images from database and display on index.php
+/*//Receiving propic id from AJAX and setting it into database profile pic, still need to fetch form database and display it in <img tag.
+if ((isset($_SESSION['userUid'])) && (isset($_POST['propic']))) {
+    $username = "'".$_SESSION['userUid']."'";
+    $picture = $_POST['propic'];
 
-    
+    try {
+        $sql = "INSERT INTO images (`profile_pic`, `u_name`) VALUES ($profilePic, $username)";
+        $db_conn->exec($sql);
+
+    } catch (PDOException $e) {
+        $e->getMessage();
+    }
+$db_conn = null;
+}*/
