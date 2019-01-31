@@ -30,7 +30,7 @@ if (isset($_POST["reset-password-submit"])) {
             $stmt->bindParam(':pwdrex', $currentDate);
             $stmt->execute();
         
-        if (!($row = $stmt->fetch(PDO::FETCH_ASSOC))) {
+        if (!($row = $stmt->fetch())) {
             header("Location: ../php/reset-password.php?error=resubmit_request");
             exit();
 
@@ -42,17 +42,18 @@ if (isset($_POST["reset-password-submit"])) {
                 exit();
             } else if ($tokenCheck === true) {
                 $tokenEmail = $row['pwdResetEmail'];
-                if (!($sql = $db_conn->prepare("SELECT * FROM users WHERE user_email = :u_em;"))) {
+                echo $tokenEmail;
+                if (!($stmt = $db_conn->prepare("SELECT * FROM users WHERE user_email = :u_em;"))) {
                     header("Location: ../php/reset-password.php?error=sqlerror2");
                     exit();
                 } else {
                     $stmt->bindParam(':u_em', $tokenEmail);
                     $stmt->execute();
-                    if (!($row = $stmt->fetch(PDO::FETCH_ASSOC))) {
+                    if (!($row = $stmt->fetch())) {
                         header("Location: ../php/reset-password.php?error=fetch_error");
                         exit();
                     } else {
-                        if (!($sql = $db_conn->prepare("UPDATE users SET user_pwd = :u_pwd WHERE user_email = :u_em;"))) {
+                        if (!($stmt = $db_conn->prepare("UPDATE users SET user_pwd = :u_pwd WHERE user_email = :u_em;"))) {
                             header("Location: ../php/reset-password.php?error=sqlerror3");
                             exit();
                     } else {
@@ -61,7 +62,7 @@ if (isset($_POST["reset-password-submit"])) {
                             $stmt->bindParam(':u_em', $tokenEmail);
                             $stmt->execute();
 
-                            if (!($sql = $db_conn->prepare("DELETE FROM pwdReset WHERE pwdResetEmail = :pwd_res_e;"))) {
+                            if (!($stmt = $db_conn->prepare("DELETE FROM pwdReset WHERE pwdResetEmail = :pwd_res_e;"))) {
                                 header("Location: ../php/reset-password.php?error=sqlerror4");
                                 exit();
                             } else {
