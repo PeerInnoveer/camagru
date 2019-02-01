@@ -2,7 +2,7 @@
     require 'header.php';
 ?>
 
-<div class="main-box">
+<div class="signup_box">
         <form class="signup-form" action="../includes/signup.inc.php" method="POST">
             <input type="text" name="uid" placeholder="Username">
             <input type="text" name="mail" placeholder="Email">

@@ -20,7 +20,7 @@
         </div>
         <br>
             <div class="capture_button">
-                <a href="#" id="capture" class="booth-capture-button"><i class="cam_icon fa fa-camera-retro"></i></a>
+                <a href="#" id="capture" class="booth-capture-button"><i class="cam_icon_button fa fa-camera-retro"></i></a>
             </div>
             <div class="button_booth">
                 <button class="back-button"><a class="b1_style" href="index.php"><i class="back_icon fas fa-arrow-circle-left"></i></a></button>

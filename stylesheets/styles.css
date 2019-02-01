@@ -10,8 +10,8 @@ a {
 }
 
 body {
-    background-image: url(../img/Trees_1400x900-1024x658.png);
-    /*background-image: linear-gradient(70deg,#b2bad1, white);*/
+    /*background-image: url(../img/Trees_1400x900-1024x658.png);*/
+    background-image: linear-gradient(70deg,#c7c7c7, white);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -189,9 +189,9 @@ header .nav-login a {
 /*_______signup form_________##############################################################*/
 
 .signup-form {
-        width: 400px;
+    width: 400px;
     margin: 0 auto;
-    padding: 80px;
+    padding: 68px;
     text-align: center;
 }
 
@@ -252,10 +252,11 @@ footer {
     text-align: center;
 }
 
-.main-box {
-    margin:auto;
-    margin-top: 60px;
-    text-align: center;
+.signup_box {
+       height: 350px;
+       margin-top: 60px;
+       text-align: center;
+       background-color: darkslategrey;
 }
 
 .additional {
@@ -297,9 +298,9 @@ footer {
 }
 
 .additional {
-    margin: auto;
+    /* margin: auto; */
     text-align: center;
-    margin-top: 14px;
+    margin-top: 50px;
     margin-right: -6px;
 }
 
@@ -343,8 +344,8 @@ footer {
     }
     
     body {
-        background-image: url(../img/Trees_1400x900-1024x658.png);
-        /*background-image: linear-gradient(70deg,#b2bad1, white);*/
+       /*background-image: url(../img/Trees_1400x900-1024x658.png);*/
+        background-image: linear-gradient(70deg,#c7c7c7, white);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
@@ -368,8 +369,9 @@ footer {
     
     .navbar-logo a {
         position: absolute;
-        left: 50px;
-        font-size: 25px;
+        left: 35px;
+        top: 17px;
+        font-size: 22px;
         font-family: 'Carter One', monospace;
         color: black;
     }
@@ -391,12 +393,10 @@ footer {
 
     .camlogo {
         position: absolute;
-        right: 5px;
+        right: 0px;
+        top: 3px;
         font-weight: 900;
-        font-size: 30px;
-        float: left;
-        padding: 4px;
-        margin-top: -6px;
+        font-size: 25px;
     }
 
     .cam_icon  {
@@ -569,11 +569,13 @@ footer {
         text-align: center;
     }
     
-    .main-box {
-        margin:auto;
+    .signup_box {
+        width: 100%;
+        height: 350px;
         margin-top: 60px;
         text-align: center;
-    }
+        background-color: darkslategrey;
+ }
 
     .agree {
         font-family: arial;
