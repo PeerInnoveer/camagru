@@ -34,12 +34,17 @@
                     <div class="nav-login">
                     <?php
                         if (isset($_SESSION['userUid'])) {
-                            echo '<form action="../includes/logout.inc.php" method="POST">
-                            <button type="submit" name="logout-submit">Logout</button>
-                            </form>';
+                            echo '<div class="dropdown">
+                                    <a href="#"><i class="settings_icon fas fa-cog"></i></a>
+                                    <div class="dropdown-content">
+                                        <form action="../includes/logout.inc.php" method="POST">
+                                            <button class="btn" type="submit" name="logout-submit">Logout</button>
+                                        </form>
+                                    </div>
+                                </div>';
+
                             echo '<li><a class="username_style" href="profile.php">'.$_SESSION["userUid"].'</a></li>
-                            <li><a href="photo_index.php"><i class="cam_icon fa fa-camera-retro"></i></a></li>
-                            <li><a href="#"><i class="settings_icon fas fa-cog"></i></a></li>';
+                            <li><a href="photo_index.php"><i class="cam_icon fa fa-camera-retro"></i></a></li>';
                         } else {
                             echo '<form class="login-form" action="../includes/login.inc.php" method="POST">
                             <input type="text" name="username" placeholder="Username">
@@ -48,9 +53,9 @@
                             </form>';
                             //header("Location: ../includes/signup.inc.php");
                         }
-                        ?>
+                    ?>
                     </div>
-                        </li>
+                </li>
                 <?php
                 ?>
             </ul> 
