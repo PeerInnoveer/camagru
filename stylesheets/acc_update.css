@@ -1,6 +1,6 @@
 .acc_info_box {
     width: 100%;
-    height: 300px;
+    height: 600px;
     padding: 80px 20px;
     background-color: white;
 }
@@ -30,13 +30,15 @@ p {
     top: 138px;
     left: 225px;
     font-size: 25px;
+    color: black;
 }
 
 .mail-edit {
     position: absolute;
-    top: 183px;
+    top: 184px;
     left: 320px;
     font-size: 25px;
+    color: black;
 }
 
 .pwd-edit {
@@ -44,4 +46,32 @@ p {
     font-size: 25px;
     top: 232px;
     left: 710px;
+    color: black;
+}
+
+#openForm1 {
+    display: none;
+}
+#openForm1:target {
+    display: table;
+}
+
+#openForm2 {
+display: none;
+}
+#openForm2:target {
+display: table;
+}
+
+#openForm3 {
+display: none;
+}
+#openForm3:target {
+display: table;
+}
+
+.label {
+  font-size: 18px;
+  font-family: 'Carter One', monospace;
+  padding: 2px 2px;
 }
