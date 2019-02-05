@@ -29,22 +29,22 @@
                 <a href="signup.php"><i class="camlogo fas fa-camera"></i></a>
                 </div>';
             ?>
-            <ul class="nav-items"> <!-- floasts to right -->
-                <li>
-                    <div class="nav-login">
-                    <?php
-                        if (isset($_SESSION['userUid'])) {
-                            echo '<div class="dropdown">
-                                    <a href="#"><i class="settings_icon fas fa-cog"></i></a>
-                                    <div class="dropdown-content">
-                                        <form action="../includes/logout.inc.php" method="POST">
-                                            <button class="btn" type="submit" name="logout-submit">Logout</button>
-                                        </form>
-                                    </div>
-                                </div>';
-
-                            echo '<li><a class="username_style" href="profile.php">'.$_SESSION["userUid"].'</a></li>
-                            <li><a href="photo_index.php"><i class="cam_icon fa fa-camera-retro"></i></a></li>';
+            <?php
+                    if (isset($_SESSION['userUid'])) {
+                        echo '<ul> <!-- floats to right -->
+                                <li><a class="username_style" href="profile.php">'.$_SESSION["userUid"].'</a></li>
+                                <li><a href="photo_index.php"><i class="cam_icon fa fa-camera-retro"></i></a></li>
+                                <li><a href="#"><i class="settings_icon fas fa-cog"></i></a>
+                                    <ul>
+                                        <!-- <li><a href="#"</a>Update Account</li> -->
+                                        <li>
+                                            <form action="../includes/logout.inc.php" method="POST">
+                                                <button class="btn" type="submit" name="logout-submit">Logout</button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul';
                         } else {
                             echo '<form class="login-form" action="../includes/login.inc.php" method="POST">
                             <input type="text" name="username" placeholder="Username">
@@ -54,8 +54,6 @@
                             //header("Location: ../includes/signup.inc.php");
                         }
                     ?>
-                    </div>
-                </li>
                 <?php
                 ?>
             </ul> 

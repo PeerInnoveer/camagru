@@ -41,6 +41,13 @@ nav {
     font-family: 'Carter One', monospace;
     color: black;
 }
+
+nav ul {
+    float: right;
+}
+
+
+
 .username_style {
     position: absolute;
     right: 224px;
@@ -51,6 +58,7 @@ nav {
     color: grey;
     transition: .3s ease-out;
 }
+
 .username_style:hover {
     transform: scale(1.2);
     color: darkslategrey;
@@ -79,6 +87,7 @@ nav {
     transition: .2s ease-out;
     color: grey;
 }
+
 .cam_icon:hover {
     transform: scale(1.3);
     color: darkslategrey;
@@ -127,9 +136,9 @@ li a {
     line-height: 63px;
 }
 
-.nav-login {
+/* .nav-login {
     float: right;
-}
+} */
 
 .nav-login form {
     float: left;
