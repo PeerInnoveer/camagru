@@ -42,19 +42,60 @@ nav {
     color: black;
 }
 
-nav ul {
+nav ul li ul {
+    display: none;
+    background-color:#a8bbd47d;
+    position: relative;
     float: right;
+    width: 172px;
+    height: 218px;
+    top: 45px;
+    right: 10px;
+    padding: 8px;
+    border-radius: 0px 0px 4px 4px;
+}
+nav ul li:hover ul {
+    display: block;
+}
+
+nav ul li ul li {
+    display: block;
+    font-family: 'Carter One', monospace;
+    font-size: 14px;
+    color: #111;
+    line-height: 12px;
+    padding: 22px 14px;
+    background-color: #a8bbd47d;
+}
+nav ul li ul li:hover {
+    background-color: #9898987d;
 }
 
 
-
+nav ul li ul li a {
+    color: black;
+}
+.btn {
+    width: 100%;
+    float: right;
+    font-size: 14px;
+    border: none;
+    padding: 22px 14px;
+    line-height: 12px;
+    font-family: 'Carter One', monospace;
+    text-align: left;
+    background-color: #a8bbd47d;
+}
+.btn:hover {
+    background-color: #9898987d;
+}
 .username_style {
     position: absolute;
     right: 224px;
-    top: -2px;
+    top: 20px;
     font-weight: 600;
     font-family: 'Carter One', monospace;
-    font-size: 18px;
+    font-size: 19px;
     color: grey;
     transition: .3s ease-out;
 }
@@ -73,10 +114,6 @@ nav ul {
     float: left;
     padding: 4px;
     margin-top: -10px;
-}
-
-.nav-items {
-    float: right;
 }
 
 .cam_icon  {
@@ -106,46 +143,12 @@ nav ul {
     color: darkslategrey;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
-    width: 130px;
-    height: 130px;
-  }
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: #f9f9f9;
-    /* min-width: 160px; */
-    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
-    /* padding: 12px 16px; */
-    z-index: 1;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-
-li a {
-    font-family: 'Changa', sans-serif;;
-    font-size: 32px;
-    color: #111;
-    line-height: 63px;
-}
-
-/* .nav-login {
+.login-form {
     float: right;
-} */
-
-.nav-login form {
-    float: left;
     padding-top: 15px;
 }
 
-.nav-login form input {
+nav input {
     float: left;
     width: 140px;
     height: 30px;
@@ -160,7 +163,7 @@ li a {
     border-radius: 2px;
 }
 
-header .nav-login form button {
+.login {
     float: left;
     width: 60px;
     height: 30px;
@@ -174,7 +177,7 @@ header .nav-login form button {
     border-radius: 2px;
 }
 
-header .nav-login form button:hover {
+.login:hover {
     background-color: rgb(74, 99, 136);
 }
 
