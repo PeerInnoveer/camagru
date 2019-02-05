@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/styles.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/profile.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/photo.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/acc_update.css"/>
 </head>
 <body>
 <header>
@@ -35,7 +36,7 @@
                         <li><a href="photo_index.php"><i class="cam_icon fa fa-camera-retro"></i></a></li>
                         <li><a href="#"><i class="settings_icon fas fa-cog"></i></a>
                             <ul>
-                                <li><a href="#">Update Account</a></li>
+                                <li><a href="update_acc.php">Account Information</a></li>
                                 <li><a href="#">Notifications</a></li>
                                 <li><a href="#">Send App Feedback</a></li>
                                     <form action="../includes/logout.inc.php" method="POST">
