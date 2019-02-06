@@ -11,9 +11,6 @@ if ((isset($_SESSION['userUid'])) && (isset($_POST['picture']))) {
     $like_count = 5;
     
     try {
-    // $db_conn= new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
-    // // set the PDO error mode to exception
-    // $db_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "INSERT INTO images (`image`, `u_name`, `description`, `like_count`) VALUES ($picture, $username, $description, $like_count)";
     $db_conn->exec($sql);
     
