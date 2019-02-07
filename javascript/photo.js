@@ -1,5 +1,6 @@
 (function() {
     var video = document.getElementById('video'),
+    //filters = document.getElementById('filters'),
     canvas = document.getElementById('canvas'),
     photo = document.getElementById('photo'),
     context = canvas.getContext('2d'),
@@ -11,7 +12,7 @@
                             navigator.msGetUserMedia; 
         navigator.getMedia({
         video: true,
-        audio: false
+        audio: false,
     }, function(stream) {
         video.srcObject = stream;
         video.play();
@@ -31,12 +32,27 @@
         var vars = "userUid="+id+"&picture="+picture;
         hr.open("POST", url, true);
         hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        hr.onreadystatechange = function(){
-            if (hr.readyState == 4 && hr.status == 200){
-                var return_data = hr.responseText;
-                document.getElementById("status").innerHTML = return_data;
-            }
-        }
+        // hr.onreadystatechange = function(){
+        //     if (hr.readyState == 4 && hr.status == 200){
+        //         var return_data = hr.responseText;
+        //         document.getElementById("status").innerHTML = return_data;
+        //     }
+        // }
         hr.send(vars);
     });
+    function chooseimg(){
+        var choose = document.querySelectorAll(".filter1, .filter2, .filter3, .filter4");
+    
+        choose.forEach(function(element){
+            element.addEventListener("click",function(){
+            img = element;
+            if (img){
+                context.drawImage(img, 0, 0, 400, 300);
+                var dataURL = canvas.toDataURL('image/png');
+                document.getElementById("imgsrc").value = dataURL;
+                console.log(document.getElementById("imgsrc").value);
+            }
+        });
+    });}
+    chooseimg();
 })();

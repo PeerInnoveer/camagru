@@ -22,9 +22,7 @@
             header("Location: ../php/update_acc.php?error=emptyfield#openForm1");
             exit();
         }
-        
-        
-            if (!($sql = $db_conn->prepare("UPDATE users SET user_uid = :new_user WHERE user_uid = :user_uid"))) {
+        if (!($sql = $db_conn->prepare("UPDATE users SET user_uid = :new_user WHERE user_uid = :user_uid"))) {
             header("Location: ../update_acc.php?error=sqlerror");
             exit();
         } else {

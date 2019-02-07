@@ -14,9 +14,11 @@
     </head>
     <body>
         <div class="booth">
-            <video id="video" class="video_class"></video>
+            <div id="video_overlays" src="..">
+                <video id="video" class="video_class"></video>
                 <canvas id="canvas" class="canvas_class" width="400" height="300"></canvas>
                 <img id="photo" class="photo_class" width="400" height="300">
+            </div>
         </div>
         <br>
             <div class="capture_button">
@@ -26,7 +28,13 @@
                 <button class="back-button"><a class="b1_style" href="index.php"><i class="back_icon fas fa-arrow-circle-left"></i></a></button>
                 <button id="upload" class="upload" ><a href="#"><i class="upload_icon fas fa-upload"></i></a></button>
                 <button id="propic" class="set_as_p"><a class="set_pic" href="#"><i class="set_as_p_icon far fa-user-circle"></i></a></button>
-                <button class="filters"><a class="filters" href="#"><i class="filter_icon fas fa-filter"></i></a> </button>
+                <button class="filters"><a class="filters" href="#"><i class="filter_icon fas fa-filter"></i></a></button>
+            </div>
+            <div class="filters_box">
+                <img class="filter1" src="http://localhost:8080/camagru/img/filters/AbstractBorder.png">
+                <img class="filter2" src="http://localhost:8080/camagru/img/filters/fire_stash.png">
+                <img class="filter3" src="http://localhost:8080/camagru/img/filters/FlowerBorder.png">
+                <img class="filter4" src="http://localhost:8080/camagru/img/filters/sweet_jesus.png">
             </div>
         <script src="../javascript/photo.js"></script>
         <div id="status"></div>
