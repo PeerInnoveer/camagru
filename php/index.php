@@ -14,7 +14,7 @@
             $sql = $db_conn->prepare("SELECT `image` FROM images");
             $sql->execute();
             $result = $sql->fetchAll();
-            //print_r($result);
+
             foreach($result as $image)
                 echo '<img class="images" src="'.$image[0].'"/>';
         } catch(PDOException $e) {
