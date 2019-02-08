@@ -28,7 +28,7 @@
                 //     header("Location: ../account.php?error=weakasspwd");
                 //     exit();
             //}
-        } 
+        }
         
         try {
         
