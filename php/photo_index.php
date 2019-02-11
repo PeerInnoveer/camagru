@@ -15,6 +15,8 @@
     <body>
         <div class="booth">
             <div id="video_overlays" src="..">
+                <!-- <div style="position: absolute"><img src="http://localhost:8080/camagru/img/filters/fire_stash.png">
+                </div> -->
                 <video id="video" class="video_class"></video>
                 <canvas id="canvas" class="canvas_class" width="400" height="300"></canvas>
                 <img id="photo" class="photo_class" width="400" height="300">

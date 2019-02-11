@@ -22,7 +22,7 @@
                                 <button class="delBut" type="submit" name="photoDel"><i class=" delB far fa-trash-alt"></i></button>
                                 <button class="likeBut" type="submit" name="like_button"><i class=" likeB far fa-heart"></i></button>
                                 <button class="commentBut" type="submit" name="com_button"><i class=" commentB far fa-comment"></i></button>
-                                </form>
+                            </form>
                                 <section class="cmsc">
                                     <textarea aria-label="Add a comment" class="tacn" name="add_com" id="comment" placeholder="Add comment..."></textarea>
                                 </section>
