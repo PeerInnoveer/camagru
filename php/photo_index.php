@@ -20,8 +20,7 @@
                 <img id="photo" class="photo_class" width="400" height="300">
             </div>
         </div>
-        <br>
-            <div class="capture_button">
+            <div class="capture_div">
                 <a href="#" id="capture" class="booth-capture-button"><i class="cam_icon_button fa fa-camera-retro"></i></a>
             </div>
             <div class="button_booth">

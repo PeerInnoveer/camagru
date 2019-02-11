@@ -48,7 +48,19 @@
             element.addEventListener("click",function(){
                 img = element;
             if (img){
-                context.drawImage(img, 0, 0, 300, 300);
+                if (img.src === "http://localhost:8080/camagru/img/filters/AbstractBorder.png") {
+                    context.drawImage(img, 0, 0, 400, 350)
+                }
+                else if (img.src === "http://localhost:8080/camagru/img/filters/fire_stash.png") {
+                    context.drawImage(img, 130, 100, 150, 120)
+                }
+                else if (img.src === "http://localhost:8080/camagru/img/filters/FlowerBorder.png") {
+                    context.drawImage(img, 0, 0, 400, 300)
+                }
+                else if (img.src === "http://localhost:8080/camagru/img/filters/sweet_jesus.png") {
+                    context.drawImage(img, 60, 8, 300, 300)
+                }
+                //context.drawImage(img, 0, 0, 300, 300);
                 var dataURL = canvas.toDataURL('image/png');
                 //document.getElementById("src").value = dataURL;
                 //console.log(document.getElementById("src").value);
