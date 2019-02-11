@@ -1,3 +1,7 @@
+.main-content{
+    text-align: center;
+}
+
 .booth {
     width: 400px;
     background-color: #ccc;
@@ -89,14 +93,13 @@
 }
 
 .gallery {
+    display: inline-grid;
     padding: 100px 45px;
+    width: 600px;
 }
 
 .images {
-    margin: 3px;
-    padding: 4px;
-    border-radius: 2px;
-    /* box-shadow: 0px 0.7px 5px 1px grey; */
+    width: 600px;
 }
 
 .filters_box {
@@ -138,40 +141,75 @@
     display: inline-block;
     margin: 10px;
     box-shadow: 0px 0.7px 5px 1px #b5b5b5;
-    border-radius: 0px 0px 10px 10px;
+    border-radius: 0px 0px 7px 7px;
 }
 .button_container {
     background-color: #f5f5f5;
-    border-radius: 0px 0px 10px 10px;
-    height: 45px;
+    border-radius: 0px 0px 7px 7px;
+    height: 275px;
 }
 .delBut {
     float: right;
     width: 65px;
     height: 45px;
-    border-radius: 0px 0px 10px 0px;
-    background-color: #ffffff;
+    border-radius: 0px 0px 7px 0px;
+    border: none;
+    background-color: #f5f5f5;
 }
 .delB {
-    width: 5px;
+    font-size: 22px;
+    color: #325686;
 }
 
 .likeBut {
+    padding: 5px 10px;
     float: left;
-    width: 65px;
-    height: 45px;
-    border-radius: 0px 0px 0px 10px;
-    background-color: #ffffff;
+    border-radius: 0px 0px 0px 7px;
+    border: none;
+    background-color: #f5f5f5;
 }
 .likeB {
-
+    font-size: 22px;
+    color: #325686;
 }
 
 .commentBut {
-    width: 65px;
-    height: 45px;
-    background-color: #ffffff;
+    padding: 5px 10px;
+    float: left;
+    border: none;
+    background-color: #f5f5f5;
+
 }
 .commentB {
+    font-size: 22px;
+    color: #325686;
+}
 
+.tacn {
+    line-height: 18px;
+    min-height: 56px;
+    justify-content: center;
+    width: 100%;
+    border-radius: 0px 0px 7px 7px;
+    margin-top: 175px;
+    background: 0 0;
+    border: 0;
+    color: #262626;
+    font-size: inherit;
+    height: 18px;
+    max-height: 80px;
+    outline: 0;
+    padding: 10px;
+    resize: none;
+}
+
+.add_comment {
+    margin-top: 175px;
+    height: 55px;
+    border-radius: 0px 0px 7px 7px;
+    border: none;
+}
+.comment_section {
+    background-color: white;
+    border-radius: 0px 0px 7px 7px;
 }
