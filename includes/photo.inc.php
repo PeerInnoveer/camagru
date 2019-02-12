@@ -8,10 +8,9 @@ if ((isset($_SESSION['userUid'])) && (isset($_POST['picture']))) {
     $username = "'".$_SESSION['userUid']."'";
     $picture = $_POST['picture'];
     $description = '"Hello"';
-    $like_count = 5;
     
     try {
-    $sql = "INSERT INTO images (`image`, `u_name`, `description`, `like_count`) VALUES ($picture, $username, $description, $like_count)";
+    $sql = "INSERT INTO images (`image`, `u_name`, `description`) VALUES ($picture, $username, $description)";
     $db_conn->exec($sql);
     
     } catch(PDOException $e) {

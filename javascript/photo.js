@@ -24,7 +24,7 @@
         context.drawImage(video, 0, 0, 400, 300);
         //photo.setAttribute('src', canvas.toDataURL('image/png'))
     });
-    document.getElementById('upload').addEventListener('click', function() {
+    document.getElementById('save').addEventListener('click', function() {
         var picture = (encodeURIComponent(JSON.stringify(photo.src)));
         var hr = new XMLHttpRequest();
         var url = "../includes/photo.inc.php";

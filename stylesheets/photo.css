@@ -68,14 +68,14 @@
     color: rgb(44, 82, 153);
 }
 
-.set_as_p {
+.save_img {
     width: 105px;
     height: 45px;
     background-color: #f2f2f2;
     margin-left: -5px;
     margin-right: -7px;
 }
-.set_as_p_icon {
+.save_image {
     font-size: 30px;
     color: rgb(44, 82, 153);
 }
@@ -84,7 +84,6 @@
     width: 105px;
     height: 45px;
     background-color: #f2f2f2;
-    border-radius: 0px 0px 10px 0px;
     margin-left: 2px;
 }
 .filter_icon {
@@ -162,6 +161,13 @@
     border-radius: 0px 0px 7px 0px;
     border: none;
 }
+.delBut:active {
+    outline: none;
+    border: none;
+}
+.delBut:focus {
+    outline: none;
+}
 .delB {
     font-size: 22px;
     color: #696969
@@ -173,6 +179,13 @@
     border-radius: 0px 0px 0px 7px;
     border: none;
 }
+.likeBut:active {
+    outline: none;
+    border: none;
+}
+.likeBut:focus {
+    outline: none;
+}
 .likeB {
     font-size: 22px;
     color: #696969;
@@ -182,7 +195,13 @@
     padding: 5px 10px;
     float: left;
     border: none;
-
+}
+.commentBut:active {
+    outline: none;
+    border: none;
+}
+.commentBut:focus {
+    outline: none;
 }
 .commentB {
     font-size: 22px;
