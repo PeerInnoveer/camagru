@@ -17,8 +17,7 @@ try {
                     `user_pwd` varchar(255) NOT NULL,
                     `vkey` varchar(255),
                     `verified` tinyint(1),
-                    `createdate` timestamp(6)
-                    ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+                    `createdate` timestamp(6)) ENGINE=MyISAM DEFAULT CHARSET=utf8;
                 CREATE TABLE `pwdreset` (
                     `pwdResetId` int(11) NOT NULL,
                     `pwdResetEmail` TEXT NOT NULL,
@@ -29,22 +28,27 @@ try {
                     `image_id` int(11) NOT NULL,
                     `image` LONGTEXT NOT NULL,
                     `u_name` varchar(255) NOT NULL,
-                    `description` varchar(255) NOT NULL,
-                    `like_count` int(11) NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+                    `description` varchar(255) NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8;
                 CREATE TABLE `comments` (
                     `comment_id` int(11) NOT NULL,
-                    `comment` longtext NOT NULL,
+                    `comment` varchar(255) NOT NULL,
                     `image_id` int(11) NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-                
-                ALTER TABLE `users` ADD PRIMARY KEY (`user_id`);
-                ALTER TABLE `pwdReset` ADD PRIMARY KEY (`pwdResetId`);
-				ALTER TABLE `images` ADD PRIMARY KEY (`image_id`);
-                ALTER TABLE `comments` ADD PRIMARY KEY (`comment_id`);
+                CREATE TABLE `likes` (
+                    `like_id` int(11) NOT NULL,
+                    `like_count` int NOT NULL,
+                    `image_id` int(11) NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+                    ALTER TABLE `users` ADD PRIMARY KEY (`user_id`);
+                    ALTER TABLE `pwdReset` ADD PRIMARY KEY (`pwdResetId`);
+                    ALTER TABLE `images` ADD PRIMARY KEY (`image_id`);
+                    ALTER TABLE `comments` ADD PRIMARY KEY (`comment_id`);
+                    ALTER TABLE `likes` ADD PRIMARY KEY (`like_id`);
                 
                 ALTER TABLE `users` MODIFY `user_id` int(11) AUTO_INCREMENT;
                 ALTER TABLE `pwdReset` MODIFY `pwdResetId` int(11) AUTO_INCREMENT;
-				ALTER TABLE `images` MODIFY `image_id` int(11) AUTO_INCREMENT;
-                ALTER TABLE `comments` MODIFY `comment_id` int(11) AUTO_INCREMENT;";
+                ALTER TABLE `images` MODIFY `image_id` int(11) AUTO_INCREMENT;
+                ALTER TABLE `comments` MODIFY `comment_id` int(11) AUTO_INCREMENT;
+                ALTER TABLE `likes` MODIFY `like_id` int(11) AUTO_INCREMENT;";
     $db_conn->exec($sql);
     }
 catch(PDOException $e)

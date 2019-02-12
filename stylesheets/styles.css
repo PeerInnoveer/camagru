@@ -101,8 +101,8 @@ nav ul li ul li a {
 }
 
 .username_style:hover {
-    transform: scale(1.2);
-    color: darkslategrey;
+    transform: scale(1.1);
+    color: black;
 }
 
 .camlogo {
