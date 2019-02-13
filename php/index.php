@@ -11,12 +11,12 @@
     <div class="gallery">
         <?php
            try {
-            $sql = $db_conn->prepare("SELECT `image`, `image_id` FROM images");
+            $sql = $db_conn->prepare("SELECT `image`, `image_id`, `u_name` FROM images");
             $sql->execute();
             $result = $sql->fetchAll();
 
             foreach($result as $image)
-                if (($image['image_id']) == ($image['u_name'])) {
+                if ($_SESSION['userUid'] == ($image['u_name'])) {
                 echo '<article>
                         <header class="ppun"></header>
                             <div class="image_container"><img class="images" src="'.$image['image'].'"/>
@@ -38,7 +38,6 @@
                             <div class="image_container"><img class="images" src="'.$image['image'].'"/>
                                 <div class="button_container">
                                     <form action="../includes/del_like_com.inc.php" method="POST">
-                                        <button class="delBut" type="submit" name="photoDel" value="'.$image['image_id'].'"><i class=" delB far fa-trash-alt"></i></button>
                                         <button class="likeBut" type="submit" name="like_button"><i class=" likeB far fa-heart"></i></button>
                                         <button class="commentBut" type="submit" name="com_button"><i class=" commentB far fa-comment"></i></button>
                                     </form>
