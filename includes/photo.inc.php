@@ -7,10 +7,9 @@ require 'dbh.inc.php';
 if ((isset($_SESSION['userUid'])) && (isset($_POST['picture']))) {
     $username = "'".$_SESSION['userUid']."'";
     $picture = $_POST['picture'];
-    $description = '"Hello"';
     
     try {
-    $sql = "INSERT INTO images (`image`, `u_name`, `description`) VALUES ($picture, $username, $description)";
+    $sql = "INSERT INTO images (`image`, `u_name`) VALUES ($picture, $username)";
     $db_conn->exec($sql);
     
     } catch(PDOException $e) {

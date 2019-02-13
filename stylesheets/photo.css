@@ -40,15 +40,15 @@
 .button_booth {
     background-color: #f2f2f2;
     width: 420px;
+    height: 90px;
     margin: 0 auto;
     border-radius: 10px 0px 10px 10px;
 }
 
 .back-button {
-    width: 105px;
+    width: 140px;
     height: 45px;
     background-color: #f2f2f2;
-    border-radius: 0px 0px 0px 10px;
 }
 .back_icon {
     font-size: 30px;
@@ -56,12 +56,12 @@
 }
 
 .upload {
-    width: 105px;
+    margin-top: -1px;
+    float: right;
+    width: 140px;
     height: 45px;
-    margin-right: 3px;
     background-color: #f2f2f2;
-    margin-left: -5px;
-    margin-right: 3px;
+    border-radius: 0px 0px 10px 0px;
 }
 .upload_icon {
     font-size: 30px;
@@ -69,7 +69,7 @@
 }
 
 .save_img {
-    width: 105px;
+    width: 140px;
     height: 45px;
     background-color: #f2f2f2;
     margin-left: -5px;
@@ -81,10 +81,10 @@
 }
 
 .filters {
-    width: 105px;
+    width: 140px;
     height: 45px;
     background-color: #f2f2f2;
-    margin-left: 2px;
+    margin-left: 4px;
 }
 .filter_icon {
     font-size: 30px;
@@ -134,6 +134,10 @@
     width: 110px;
     right: 182px;
     top: 20px;
+}
+.uploadImage {
+    width: 420px;
+    height: 50px;
 }
 
 .ppun {

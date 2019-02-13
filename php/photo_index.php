@@ -30,11 +30,13 @@
                 <button class="back-button"><a class="b1_style" href="index.php"><i class="back_icon fas fa-arrow-circle-left"></i></a></button>
                 <button id="save" class="save_img"><a href="#"><i class="save_image far fa-save"></i></a></button>
                 <button class="filters"><a class="filters" href="#"><i class="filter_icon fas fa-filter"></i></a></button>
-                <button type="submit" name="upload" class="upload"><i class="upload_icon fas fa-upload"></i></button>
+                <!-- <div class="uploadImage"> -->
+                    <form action="../includes/upload.inc.php" method="POST" enctype="multipart/form-data">
+                    <button type="submit" name="upload" class="upload">Upload Image</button>
+                    <input type="file" name="file">
+                </form>
             </div>
-            <form action="../includes/upload.inc.php" method="POST" enctype="multipart/form-data">
-                <input type="file" name="file">
-            </form>
+                <!-- </div> -->
             <div class="filters_box">
                 <img class="filter1" src="http://localhost:8080/camagru/img/filters/AbstractBorder.png">
                 <img class="filter2" src="http://localhost:8080/camagru/img/filters/fire_stash.png">
