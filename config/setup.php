@@ -34,7 +34,7 @@ try {
                     `image_id` int(11) NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8;
                 CREATE TABLE `likes` (
                     `like_id` int(11) NOT NULL,
-                    `like_count` int NOT NULL,
+                    `user_id` int(11) NOT NULL,
                     `image_id` int(11) NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
                     ALTER TABLE `users` ADD PRIMARY KEY (`user_id`);

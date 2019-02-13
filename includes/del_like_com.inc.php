@@ -2,8 +2,8 @@
 <!-- Delete of images. -->
 
 <?php
+    require 'dbh.inc.php';
     if (isset($_POST['photoDel'])) {
-        require 'dbh.inc.php';
         
         $image_id = $_POST['photoDel'];
         
@@ -21,28 +21,30 @@
         }
         header("Location: ../php/index.php?del=success");
         exit();
-    } else {
-        header("Location: ../php/index.php");
-        exit();
-    }
     
-    ?>
+    // like of images.
+    } else if (isset($_POST['like'])) {
+        try {
+            if (!($sql = $db_conn->prepare("INSERT INTO `likes`(`user_id`, `image_id`) VALUES (:user_id, :image_id)"))) {
+                header("Location: ../php/index.php?error=sqlerror");
+                exit();
+            } else {
+                $sql->bindParam(':user_id', $_POST['user_id']);
+                $sql->bindParam(':image_id', $_POST['image_id']);
+                $sql->execute();
+            
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
 
-<!-- like of images. -->
-<?php
-    if (isset($_POST['like'])) {
-        require 'dbh.inc.php';
-
+        header("Location: ../php/index.php?user=".$_POST['user_id']."&img=".$_POST['image_id']);
+        exit();
+    
+    // Comment on image or photo.
+    } else if (isset($_POST['com'])) {
         
-
-    }
-?>
-
-<!-- Comment on image or photo. -->
-
-<?php
-    if (isset($_POST['com'])) {
-        require 'dbh.inc.php';
-
-    }
-?>
+    } else {
+        header("Location: ../php/index.php?fail=yes");
+        exit();
+}
