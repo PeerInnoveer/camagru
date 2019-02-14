@@ -3,6 +3,7 @@
 
 <?php
     require 'dbh.inc.php';
+    print_r($_POST);
     if (isset($_POST['photoDel'])) {
         
         $image_id = $_POST['photoDel'];
@@ -43,7 +44,29 @@
     
     // Comment on image or photo.
     } else if (isset($_POST['com'])) {
-        
+
+        // $comment = addslashes($_POST['add_com']);
+        $comment = $_POST['add_com'];
+
+            if ($comment != htmlspecialchars($_POST['add_com'])) {
+                header("Location: ../php/index.php?error=NiceTry");
+                exit();
+            }
+        try {
+            if (!($sql = $db_conn->prepare("INSERT INTO `comments`(`comment`, `image_id`, `user_id`) VALUES(:com, :imgId, :userId)"))) {
+                header("Location: ../php/index.php?error=sqlerror");
+                exit();
+            } else {
+                $sql->bindParam(':com', $comment);
+                $sql->bindParam(':imgId', $_POST['image_id']);
+                $sql->bindParam(':userId', $_POST['user_id']);
+                $sql->execute();
+                header("Location: ../php/index.php?comAdd=success");
+                exit();
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
     } else {
         header("Location: ../php/index.php?fail=yes");
         exit();

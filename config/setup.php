@@ -31,7 +31,8 @@ try {
                 CREATE TABLE `comments` (
                     `comment_id` int(11) NOT NULL,
                     `comment` varchar(255) NOT NULL,
-                    `image_id` int(11) NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+                    `image_id` int(11) NOT NULL,
+                    `user_id` int(11) NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8;
                 CREATE TABLE `likes` (
                     `like_id` int(11) NOT NULL,
                     `user_id` int(11) NOT NULL,

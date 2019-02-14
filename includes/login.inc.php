@@ -11,8 +11,7 @@ if (isset($_POST['login-submit'])) {
 	    if ($uid != htmlspecialchars($_POST['username']) || $password != htmlspecialchars($_POST['pwd'])) {
             header("Location: ../php/signup.php?error=nice_try");
 	        exit();
-        }
-	    if (empty($uid) || empty($password)) {
+        } else if (empty($uid) || empty($password)) {
 		    header("Location: ../php/signup.php?error=emptyfields");
 		    exit();
 	    } else {

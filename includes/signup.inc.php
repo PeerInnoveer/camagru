@@ -11,7 +11,10 @@ if (isset($_POST['signup-submit'])) {
     
     
     //Error Handlers
-    if (empty($username) || empty($email) || empty($Pwd) || empty($Pwd_confirm)) {
+    if ($username != htmlspecialchars($_POST['uid']) || $email != htmlspecialchars($_POST['mail']) || $Pwd != htmlspecialchars($_POST['pwd']) || $Pwd_confirm != htmlspecialchars($_POST['pwd-confirm'])) {
+        header("Location: ../php/signup.php?error=NiceTry");
+        exit();
+    } else if (empty($username) || empty($email) || empty($Pwd) || empty($Pwd_confirm)) {
         header("Location: ../php/signup.php?error=emptyfields&uid=".$username."&mail=".$email);
         exit();
     } else if (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9-]*$/", $username)) {

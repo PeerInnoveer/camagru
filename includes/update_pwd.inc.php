@@ -24,11 +24,11 @@
         } else if ($new_pwd !== $re_new) {
             header("Location: ../php/update_acc.php?error=pwd_not_a_match");
             exit();
-            // } else if (!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,64}$/", $new_pwd)) {
-                //     header("Location: ../account.php?error=weakasspwd");
-                //     exit();
-            //}
         }
+    //  } else if ((strlen($Pwd) < 6) || (strlen($Pwd) > 12) || (preg_match("/[A-Z]/", $Pwd)=== 0)) {
+            //header("Location: ../php/create-new-password.php?error=bad_pwd");
+           // exit();
+        
         
         try {
         

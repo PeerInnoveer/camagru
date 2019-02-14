@@ -32,9 +32,9 @@
                 <button class="filters"><a class="filters" href="#"><i class="filter_icon fas fa-filter"></i></a></button>
                 <!-- <div class="uploadImage"> -->
                     <form action="../includes/upload.inc.php" method="POST" enctype="multipart/form-data">
-                    <button type="submit" name="upload" class="upload">Upload Image</button>
-                    <input type="file" name="file">
-                </form>
+                        <button type="submit" name="upload" class="upload">Upload Image</button>
+                        <input type="file" name="file">
+                    </form>
             </div>
                 <!-- </div> -->
             <div class="filters_box">
