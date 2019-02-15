@@ -60,10 +60,9 @@
                 else if (img.src === "http://localhost:8080/camagru/img/filters/sweet_jesus.png") {
                     context.drawImage(img, 60, 8, 300, 300)
                 }
-                //context.drawImage(img, 0, 0, 300, 300);
+                
                 var dataURL = canvas.toDataURL('image/png');
-                //document.getElementById("src").value = dataURL;
-                //console.log(document.getElementById("src").value);
+
                 photo.setAttribute('src', canvas.toDataURL('image/png'))
             }
         });

@@ -18,10 +18,10 @@ if (isset($_POST["reset-password-submit"])) {
     } else if ($password != $passwordRepeat) {
         header("Location: ../php/create-new-password.php?newpwd=pwd-dont-match");
         exit();
+    } else if ((strlen($password) < 6) || (strlen($password) > 12) || (preg_match("/[A-Z]/", $password) === 0) && ((strlen($password) < 6) || (strlen($passwordRepeat) < 6) || (strlen($passwordRepeat) > 12) || (pregmatch("/[A-Z]/", $passwordRepeat) === 0))) {
+        header("Location: ../php/create-new-password.php?error=bad_pwd");
+        exit();
     }
-//  } else if ((strlen($Pwd) < 6) || (strlen($Pwd) > 12) || (preg_match("/[A-Z]/", $Pwd)=== 0)) {
-        //header("Location: ../php/create-new-password.php?error=bad_pwd");
-       // exit();
     
     try {
         $currentDate = date("U");

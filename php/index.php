@@ -11,7 +11,7 @@
     <div class="gallery">
         <?php
            try {
-            $sql = $db_conn->prepare("SELECT `image`, `image_id`, `u_name` FROM images");
+            $sql = $db_conn->prepare("SELECT `image`, `image_id`, `u_name` FROM images ORDER BY `date` DESC" );
             $sql->execute();
             $result = $sql->fetchAll();
             foreach($result as $image)
@@ -21,9 +21,10 @@
                 $likeresult = $sql->fetchAll();
                 $num_likes = count($likeresult);
 
-                $sql = $db_conn->prepare("SELECT * FROM comments WHERE image_id = ".$image['image_id']);
+                $sql = $db_conn->prepare("SELECT * FROM comments WHERE image_id = ".$image['image_id']." ORDER BY `date` DESC");
                 $sql->execute();
                 $commentresult = $sql->fetchAll();
+                $num_comments = count($commentresult);
                 
                     echo '<article>
                         <header class="ppun">
@@ -33,11 +34,14 @@
                             <div class="image_container"><img class="images" src="'.$image['image'].'"/>
                                 <div class="button_container">
                                     <form action="../includes/del_like_com.inc.php" method="POST">
-                                        <button class="delBut" type="submit" name="photoDel" value="'.$image['image_id'].'"><i class=" delB far fa-trash-alt"></i></button>
                                         <button class="likeBut" type="submit" name="like"><i class=" likeB far fa-heart"></i></button>
                                         <button class="commentBut" type="submit" name="com"><i class=" commentB far fa-comment"></i></button>
-                                        <div class="likes">
-                                            <p>Likes:'.$num_likes.'</p>
+                                        <button class="delBut" type="submit" name="photoDel" value="'.$image['image_id'].'"><i class=" delB far fa-trash-alt"></i></button>
+                                        <div>
+                                            <p class="likes">Likes:'.$num_likes.'</p>
+                                        </div>
+                                        <div>
+                                            <p class="numComments">Comments:'.$num_comments.'</p>
                                         </div>
                                         <input type="hidden" name="image_id" value="'.$image['image_id'].'">
                                         <input type="hidden" name="user_id" value="'.$_SESSION['userId'].'">
@@ -45,7 +49,7 @@
                                             <textarea aria-label="Add a comment" class="tacn" name="add_com" id="comment" placeholder="Add comment..."></textarea>
                                                 <div class="com_receive">';
                                                     foreach($commentresult as $comment)
-                                                        echo $comment['comment']."<br>";
+                                                        echo '<p class="comments">'.$comment['comment'].'</p>'."<br>";
                                         echo    '</div>
                                         </section>
                                     </form>

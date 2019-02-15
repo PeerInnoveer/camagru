@@ -10,37 +10,31 @@
         $fileSize = $_FILES['file']['size'];
         $fileError = $_FILES['file']['error'];
         $fileType = $_FILES['file']['type'];
-        //print_r($_FILES);
-        //echo '<br>';
-        // print_r($_FILES['file']['tmp_name']);
-        // $base64 = file_get_contents($_FILES['file']['tmp_name'].'/'.$_FILES['file']['name']);
-        //print_r($base64);
+       
         $fileExt = explode('.', $fileName);
         $fileActualExt = strtolower(end($fileExt));
 
-        $username = "'".$_SESSION['userUid']."'";
+        $username = $_SESSION['userUid'];
         $allowed = array('jpg', 'jpeg', 'png');
 
         if (in_array($fileActualExt, $allowed)) {
             if ($fileError === 0) {
                 if ($fileSize < 10000000000) {
                     $fileNameNew = uniqid('', true).".".$fileActualExt;
-                    $base64 = file_get_contents($fileActualExt, true);
                     
-                    $fileDestination = '../uploads/'.$fileNameNew;
-                    // echo $fileDestination;
-                    move_uploaded_file($fileTmpName, $fileDestination);
-                    $picture = base64_encode(file_get_contents($fileDestination));
-                    // print_r($b);
+                    $picture = 'data:image/png;base64,'.base64_encode(file_get_contents($fileTmpName));
                         
                     try {
-                        if (!($sql = $db_conn->prepare("INSERT INTO images (`image`, `u_name`) VALUES ($picture, $username)"))) {
+                        if (!($sql = $db_conn->prepare("INSERT INTO images (`image`, `u_name`) VALUES (:pic, :u_name)"))) {
                             header("Location: ../php/photo_index.php?sql=error");
                             exit();
-                        } else $sql->execute();
+                        } else {
+                            $sql->bindParam(':pic', $picture);
+                            $sql->bindParam(':u_name', $username);
+                            $sql->execute();
                             header("Location: ../php/photo_index.php?upload=success");
                             exit();
-                        //echo "something";
+                        }
                     } catch(PDOException $e) {
                         echo $e->getMessage();
                     }

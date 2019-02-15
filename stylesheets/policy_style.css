@@ -36,6 +36,5 @@ img {
     border: 10px solid rgb(95, 123, 185);
     padding: 30px;
     margin-top: 60px;
-    /*opacity: 0.5; /* Firefox, Chrome, Safari, Opera, IE >= 9 (preview)
-    filter:alpha(opacity=50);*/
+    
 }

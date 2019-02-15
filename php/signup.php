@@ -38,7 +38,7 @@
             }
             if (isset($_GET["error"])) {
                 if ($_GET["error"] == "bad_pwd") {
-                    echo '<div class="badPwd"><p>Weak password, password should contain atleast one Uppercase and lowercase letter, one number and a special character.</p></div>';
+                    echo '<div class="badPwd"><p>Weak password, password should be between 6 and 12 characters in length and contain atleast one Uppercase letter.</p></div>';
                 }
             }
         ?>

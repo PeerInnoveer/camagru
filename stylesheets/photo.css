@@ -249,4 +249,11 @@
 
 .likes {
     display: inline-block;
+    font-family: 'Carter One', monospace;
+}
+
+.comments {
+    margin-left: 16px;
+    float: left;
+    color: #676767;
 }

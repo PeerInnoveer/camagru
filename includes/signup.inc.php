@@ -29,13 +29,15 @@ if (isset($_POST['signup-submit'])) {
     } else if ($Pwd !== $Pwd_confirm) {
         header("Location: ../php/signup.php?error=passwordcheck&uid=".$username."&mail=".$email);
         exit();
-    //} else if ((strlen($Pwd) < 6) || (strlen($Pwd) > 12) || (preg_match("/[A-Z]/", $Pwd)=== 0)) {
-        //header("Location: ../php/signup.php?error=bad_pwd&uid=".$username."&mail=".$email);
-       // exit();
+    } else if ((strlen($Pwd) < 6) || (strlen($Pwd) > 12) || (preg_match("/[A-Z]/", $Pwd) === 0) && (strlen($Pwd) < 6) || (strlen($Pwd) > 12) || (preg_match("/[A-Z]/", $Pwd) === 0)) {
+        header("Location: ../php/signup.php?error=bad_pwd&uid=".$username."&mail=".$email);
+        exit();
     } else if (strlen($username) < 5 ) {
         header("Location: ../php/signup.php?errorUid=usernameShort&mail=".$email);
         exit();
-    } try {
+    } 
+    
+    try {
         //Check if username exists.
         if (!($stmt = $db_conn->prepare("SELECT user_uid FROM users WHERE user_uid = :u_name"))) {
             header("Location: ../php/signup.php?error=sqlerror");

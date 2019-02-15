@@ -17,18 +17,16 @@
         if ($username != htmlspecialchars($_POST['uid']) || $new_pwd != htmlspecialchars($_POST['new_pwd']) || $re_new != htmlspecialchars($_POST['re_new_pwd']) || $curr_pwd != htmlspecialchars($_POST['curr_pwd'])) {
             header("Location: ../php/update_acc.php?error=NiceTry");
             exit();
-        }
-        if (empty($curr_pwd) || empty($new_pwd) || empty($re_new)) {
+        } else if (empty($curr_pwd) || empty($new_pwd) || empty($re_new)) {
             header("Location: ../php/update_acc.php?error=emptyFields");
             exit();
         } else if ($new_pwd !== $re_new) {
             header("Location: ../php/update_acc.php?error=pwd_not_a_match");
             exit();
+        } else if ((strlen($new_pwd) < 6) || (strlen($new_pwd) > 12) || (preg_match("/[A-Z]/", $new_pwd) === 0) && (strlen($re_new) < 6) || (strlen($re_new) > 12) || (preg_match("/[A-Z]/", $re_new) === 0)) {
+            header("Location: ../php/update_acc.php?error=weakpwd");
+            exit();
         }
-    //  } else if ((strlen($Pwd) < 6) || (strlen($Pwd) > 12) || (preg_match("/[A-Z]/", $Pwd)=== 0)) {
-            //header("Location: ../php/create-new-password.php?error=bad_pwd");
-           // exit();
-        
         
         try {
         
@@ -56,7 +54,7 @@
                             $sql->execute();
                             $update = $sql->rowCount();
                             if ($update) {
-                                header("Location: ../php/update_acc.php?error=success");
+                                header("Location: ../php/update_acc.php?pwd_update=success");
                                 exit();
                             } else {
                                 header("Location: ../php/update_acc.php?pwdChange=error");

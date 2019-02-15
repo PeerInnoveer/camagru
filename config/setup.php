@@ -27,12 +27,14 @@ try {
                 CREATE TABLE `images` (
                     `image_id` int(11) NOT NULL,
                     `image` LONGTEXT NOT NULL,
-                    `u_name` varchar(255) NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+                    `u_name` varchar(255) NOT NULL,
+                    `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP) ENGINE=MyISAM DEFAULT CHARSET=utf8;
                 CREATE TABLE `comments` (
                     `comment_id` int(11) NOT NULL,
                     `comment` varchar(255) NOT NULL,
                     `image_id` int(11) NOT NULL,
-                    `user_id` int(11) NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+                    `user_id` int(11) NOT NULL,
+                    `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP) ENGINE=MyISAM DEFAULT CHARSET=utf8;
                 CREATE TABLE `likes` (
                     `like_id` int(11) NOT NULL,
                     `user_id` int(11) NOT NULL,
