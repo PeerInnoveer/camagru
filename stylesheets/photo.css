@@ -246,3 +246,7 @@
     margin-top: -255px;
     background-color: #efefef;
 }
+
+.likes {
+    display: inline-block;
+}

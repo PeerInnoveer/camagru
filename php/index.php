@@ -36,7 +36,9 @@
                                         <button class="delBut" type="submit" name="photoDel" value="'.$image['image_id'].'"><i class=" delB far fa-trash-alt"></i></button>
                                         <button class="likeBut" type="submit" name="like"><i class=" likeB far fa-heart"></i></button>
                                         <button class="commentBut" type="submit" name="com"><i class=" commentB far fa-comment"></i></button>
-                                        <div class="likes">'.$num_likes.'</div>
+                                        <div class="likes">
+                                            <p>Likes:'.$num_likes.'</p>
+                                        </div>
                                         <input type="hidden" name="image_id" value="'.$image['image_id'].'">
                                         <input type="hidden" name="user_id" value="'.$_SESSION['userId'].'">
                                         <section>

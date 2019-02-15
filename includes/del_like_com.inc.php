@@ -39,7 +39,7 @@
             echo $e->getMessage();
         }
 
-        header("Location: ../php/index.php?user=".$_POST['user_id']."&img=".$_POST['image_id']);
+        header("Location: ../php/index.php");
         exit();
     
     // Comment on image or photo.
